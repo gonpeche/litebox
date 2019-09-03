@@ -67,7 +67,7 @@ export default {
   }
 
   .navbar {
-    background-color: black;
+    background-color: rgb(59, 59, 59);
     margin: 0 auto;
     padding: 0;
 
