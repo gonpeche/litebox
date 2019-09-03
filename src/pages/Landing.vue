@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
   .homepage-container {
-
+    padding-left: 10%;
+    padding-right: 10%;
   }
 </style>
