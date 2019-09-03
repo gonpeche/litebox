@@ -66,6 +66,10 @@ export default {
     color: white;
   }
 
+  .inicio {
+    font-weight: bold;
+  }
+
   .navbar {
     background-color: rgb(59, 59, 59);
     margin: 0 auto;

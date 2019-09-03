@@ -1,43 +1,33 @@
 <template>
-  <div>
-    <div class="homepage-container">
-      <navbar></navbar>
-      <main-content></main-content>
-      <proximamente :movies="upcomingMovies"></proximamente>
+    <div class="main-container">
+      <h2 class="main-container-header">ORIGINAL DE LITEFLIX</h2>
+      <h1 class="main-container-title">Kids at school</h1>
+      <ul>
+        <li class="main-container-button main-container-button-reproducir">
+          <img src="../assets/play.svg">
+          <span>Reproducir</span>
+        </li>
+        <li class="main-container-button">
+          <img src="../assets/plus.svg">
+          <span>Mi Lista</span>
+        </li>
+      </ul>
+      <div class=main-container-footer>
+        <h2 class="main-container-footer-title">Ver temporada 1</h2>
+        <p class="main-container-footer-description">
+          Lorem ipsum dolor amet chicharrones dreamcatcher hammock bushwick hell of, ethical 3 wolf moon celiac neutra mumblecore four dollar toast. Slow-carb post-ironic kickstarter synth franzen.
+        </p>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
-import navbar from '../components/Navbar';
-import mainContent from '../components/Main';
-import proximamente from '../components/Proximamente';
-import axios from 'axios';
-
 export default {
-  name: 'Homepage',
-  components: {
-    navbar,
-    'main-content': mainContent,
-    proximamente
-  },
+  name: 'mainContent',
+  components: {},
   data () {
     return {
-      upcomingMovies: []
-    }
-  },
-  mounted () {
-    axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=6f26fd536dd6192ec8a57e94141f8b20')
-    .then((response) => {
-      let movies = this.filterMovies(response.data.results);
-      this.upcomingMovies = movies
-    })
-  },
-  methods: {
-    filterMovies(movies) {
-      movies.splice(4)
-      return movies
-      // console.log(movies)
+
     }
   }
 }
@@ -51,10 +41,12 @@ export default {
     padding-left: 10%;
     padding-right: 10%;
     background-color: rgb(59, 59, 59);
-    // color: white;
+    color: white;
   }
 
   .main-container {
+    color: white;
+
     &-header {
       margin-top: 106px;
       font-family: Montserrat;
@@ -64,7 +56,6 @@ export default {
       font-stretch: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: white;
     }
 
     &-title {
@@ -78,7 +69,6 @@ export default {
       font-stretch: normal;
       line-height: 0.82;
       letter-spacing: normal;
-      color: white;
     }
 
     &-button {
@@ -116,13 +106,9 @@ export default {
 
       &-title {
         margin-top: 25px;
+        font-size: 20px;
         margin-bottom: 0;
         font-weight: bold;
-        // font-size: 18px;
-      }
-
-      &-description {
-
       }
     }
 
