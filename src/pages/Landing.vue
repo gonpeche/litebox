@@ -4,10 +4,10 @@
       <navbar></navbar>
       <main-content :featuredMovie="featuredMovie"></main-content>
     </div>
-    <div class='proximamente-wrapper'>
-      <proximamente :movies="upcomingMovies"></proximamente>
+    <div class='movies-wrapper'>
+      <proximamente :movies="upcomingMovies" type='upcoming'></proximamente>
+      <popular-movies :movies="popularMovies" type='popular'></popular-movies>
     </div>
-    <!-- <popular-movies></popular-movies> -->
   </div>
 </template>
 
@@ -15,6 +15,7 @@
 import navbar from '../components/Navbar';
 import mainContent from '../components/Main';
 import proximamente from '../components/Proximamente';
+import popularMovies from '../components/PopularMovies';
 import axios from 'axios';
 
 export default {
@@ -22,12 +23,13 @@ export default {
   components: {
     navbar,
     'main-content': mainContent,
+    'popular-movies': popularMovies,
     proximamente
   },
   data () {
     return {
       upcomingMovies: [],
-      popuplarMovies: [],
+      popularMovies: [],
       featuredMovie: [],
       loading: false
     }
@@ -41,7 +43,7 @@ export default {
       let popularMovies = this.filterMovies(response[1]);
 
       this.upcomingMovies = upcomingMovies;
-      this.popuplarMovies = popularMovies;
+      this.popularMovies = popularMovies;
       this.featuredMovie = response[2];
 
       this.loading = false;
@@ -86,6 +88,24 @@ export default {
     },
     getBackgroundImage(url) {
       return `linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000), url("https://image.tmdb.org/t/p/original/${url}")`
+    },
+    getSize(type) {
+      switch(type) {
+        case 'upcoming':
+          return {
+            height: 155,
+            width: 253,
+          }
+          break;
+        case 'popular':
+          return {
+            height: 507,
+            width: 253
+          }
+          break;
+        default:
+          return null
+      }
     }
   }
 }
@@ -176,9 +196,10 @@ export default {
 
   }
 
-  .proximamente-wrapper {
+  .movies-wrapper {
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 100px;
   }
 
   li {

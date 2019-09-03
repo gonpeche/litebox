@@ -1,7 +1,7 @@
 <template>
-  <div class="hola">
+  <div class="proximamente-container">
     <h2 class="proximamente-title">Proximamente</h2>
-    <movies-showcase :movies="movies"></movies-showcase>
+    <movies-showcase :movies="movies" :type="type"></movies-showcase>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import showMovies from '../components/showMovies'
 export default {
   name: 'proximamente',
-  props: ['movies'],
+  props: ['movies', 'type'],
   components: {
     'movies-showcase': showMovies
   },
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .hola {
+  .proximamente-container {
     padding: 0;
     margin: 0;
     color: white;
