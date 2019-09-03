@@ -1,13 +1,17 @@
 <template>
-<div>
-  Hola
-</div>
+  <div class="homepage-container">
+    <navbar></navbar>
+  </div>
 </template>
 
 <script>
+import navbar from './Navbar'
 
 export default {
   name: 'Homepage',
+  components: {
+    navbar
+  },
   data () {
     return {
 
@@ -17,9 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
   .homepage-container {
 
   }
-
 </style>
