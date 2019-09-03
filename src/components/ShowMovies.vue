@@ -27,9 +27,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .proximamente-container {
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 </style>

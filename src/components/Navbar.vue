@@ -56,7 +56,7 @@ export default {
 
   li {
     padding: 3px;
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -67,11 +67,10 @@ export default {
   }
 
   .inicio {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   .navbar {
-    background-color: rgb(59, 59, 59);
     margin: 0 auto;
     padding: 0;
 

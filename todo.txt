@@ -1,0 +1,3 @@
+de las featured, sortear la mas nueva
+meter spinners a la carga inicial
+optimizar la carga de peliculas

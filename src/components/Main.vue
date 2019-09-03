@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
-      <h2 class="main-container-header">ORIGINAL DE LITEFLIX</h2>
-      <h1 class="main-container-title">Kids at school</h1>
+      <h2 class="main-container-header">ORIGINAL DE <strong>LITEFLIX</strong></h2>
+      <h1 class="main-container-title">{{featuredMovie.title}}</h1>
       <ul>
         <li class="main-container-button main-container-button-reproducir">
           <img src="../assets/play.svg">
@@ -13,9 +13,9 @@
         </li>
       </ul>
       <div class=main-container-footer>
-        <h2 class="main-container-footer-title">Ver temporada 1</h2>
+        <h2 class="main-container-footer-title">Ver película</h2>
         <p class="main-container-footer-description">
-          Lorem ipsum dolor amet chicharrones dreamcatcher hammock bushwick hell of, ethical 3 wolf moon celiac neutra mumblecore four dollar toast. Slow-carb post-ironic kickstarter synth franzen.
+          {{featuredMovie.description}}
         </p>
       </div>
     </div>
@@ -24,6 +24,7 @@
 <script>
 export default {
   name: 'mainContent',
+  props: ['featuredMovie'],
   components: {},
   data () {
     return {
@@ -34,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
 
   .homepage-container {
@@ -49,7 +50,7 @@ export default {
 
     &-header {
       margin-top: 106px;
-      font-family: Montserrat;
+      font-family: 'Montserrat', sans-serif;
       font-size: 24px;
       font-weight: normal;
       font-style: normal;
@@ -61,8 +62,6 @@ export default {
     &-title {
       margin-top: 18px;
       font-family: 'Roboto Slab', serif;
-      width: 392px;
-      font-family: RobotoSlab;
       font-size: 110px;
       font-weight: bold;
       font-style: normal;
@@ -99,8 +98,6 @@ export default {
     }
 
     &-footer {
-      width: 537px;
-      height: 168px;
       font-family: Montserrat;
       font-size: 18px;
 
@@ -108,7 +105,11 @@ export default {
         margin-top: 25px;
         font-size: 20px;
         margin-bottom: 0;
-        font-weight: bold;
+        font-weight: 700;
+      }
+
+      &-description {
+        font-weight: 400;
       }
     }
 

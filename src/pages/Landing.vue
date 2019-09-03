@@ -1,10 +1,11 @@
 <template>
   <div>
-    <div class="homepage-container">
+    <div class="homepage-container" v-bind:style="{ 'background-image': featuredMovie.image }">
       <navbar></navbar>
-      <main-content></main-content>
-      <proximamente :movies="upcomingMovies"></proximamente>
+      <main-content :featuredMovie="featuredMovie"></main-content>
     </div>
+    <proximamente :movies="upcomingMovies"></proximamente>
+    <!-- <popular-movies></popular-movies> -->
   </div>
 </template>
 
@@ -23,21 +24,66 @@ export default {
   },
   data () {
     return {
-      upcomingMovies: []
+      upcomingMovies: [],
+      popuplarMovies: [],
+      featuredMovie: [],
+      loading: false
     }
   },
   mounted () {
-    axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=6f26fd536dd6192ec8a57e94141f8b20')
+    this.loading = true;
+
+    Promise.all([this.getUpcomingMovies(), this.getPopularMovies(), this.getFeaturedMovie()])
     .then((response) => {
-      let movies = this.filterMovies(response.data.results);
-      this.upcomingMovies = movies
+      let upcomingMovies = this.filterMovies(response[0]);
+      let popularMovies = this.filterMovies(response[1]);
+
+      this.upcomingMovies = upcomingMovies;
+      this.popuplarMovies = popularMovies;
+      this.featuredMovie = response[2];
+
+      this.loading = false;
     })
+    .catch(error => console.log(error))
+
   },
   methods: {
+    async getUpcomingMovies() {
+      try {
+        const response = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=6f26fd536dd6192ec8a57e94141f8b20')
+        return response.data.results
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getPopularMovies() {
+      try {
+        const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20')
+        return response.data.results
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getFeaturedMovie() {
+      try {
+        const response = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20')
+
+        const featuredMovie = {
+          title: response.data.results[1].title,
+          description: response.data.results[1].overview,
+          image: this.getBackgroundImage(response.data.results[1].backdrop_path)
+        }
+        return featuredMovie
+      } catch (error) {
+        console.error(error)
+      }
+    },
     filterMovies(movies) {
       movies.splice(4)
       return movies
-      // console.log(movies)
+    },
+    getBackgroundImage(url) {
+      return `linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000), url("https://image.tmdb.org/t/p/original/${url}")`
     }
   }
 }
@@ -48,10 +94,11 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
 
   .homepage-container {
+    height: 80vh;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: rgb(59, 59, 59);
-    // color: white;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000);
+    background-size: cover;
   }
 
   .main-container {

@@ -24,6 +24,8 @@ export default {
   .proximamente-container {
     color: white;
     background-color: black;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   .proximamente-title {
