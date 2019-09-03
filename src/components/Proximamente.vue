@@ -1,5 +1,5 @@
 <template>
-  <div class="proximamente-container">
+  <div class="hola">
     <h2 class="proximamente-title">Proximamente</h2>
     <movies-showcase :movies="movies"></movies-showcase>
   </div>
@@ -21,11 +21,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .proximamente-container {
+  .hola {
+    padding: 0;
+    margin: 0;
     color: white;
-    background-color: black;
-    padding-left: 10%;
-    padding-right: 10%;
+    position: relative;
+    bottom: 100px;
   }
 
   .proximamente-title {

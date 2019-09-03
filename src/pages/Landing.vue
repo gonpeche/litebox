@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <div class="homepage-container" v-bind:style="{ 'background-image': featuredMovie.image }">
+  <div class="landing-wrapper">
+    <div class='homepage-container' v-bind:style="{ 'background-image': featuredMovie.image }">
       <navbar></navbar>
       <main-content :featuredMovie="featuredMovie"></main-content>
     </div>
-    <proximamente :movies="upcomingMovies"></proximamente>
+    <div class='proximamente-wrapper'>
+      <proximamente :movies="upcomingMovies"></proximamente>
+    </div>
     <!-- <popular-movies></popular-movies> -->
   </div>
 </template>
@@ -93,8 +95,12 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
 
+  .landing-wrapper {
+    background-color: black;
+  }
+
   .homepage-container {
-    height: 80vh;
+    height: 90vh;
     padding-left: 10%;
     padding-right: 10%;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000);
@@ -165,14 +171,14 @@ export default {
         margin-top: 25px;
         margin-bottom: 0;
         font-weight: bold;
-        // font-size: 18px;
-      }
-
-      &-description {
-
       }
     }
 
+  }
+
+  .proximamente-wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   li {

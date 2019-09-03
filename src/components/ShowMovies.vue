@@ -1,5 +1,5 @@
 <template>
-  <div class="proximamente-container">
+  <div class="showmovies-container">
     <template v-for="(movie, i) in movies">
       <div v-bind:key="i">
         <img :src="getPic(movie.backdrop_path)" width="255" height="155">
@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.proximamente-container {
+.showmovies-container {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
