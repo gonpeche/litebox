@@ -6,3 +6,8 @@ animar la aparición del dropdown
 dropdown no se mantiene abierto
 
 random pic de https://picsum.photos/
+
+performance:
+https://github.com/GoogleChrome/lighthouse/blob/7e5fcf630cd59bddfea0ef5b3cc0b7b243b5cd92/lighthouse-core/config/default-config.js#L371
+https://thinkwithgoogle.com/features/testmysite
+usar lazyLoad imagenes
