@@ -1,30 +1,33 @@
 <template>
-  <div @mouseover="showMenu = true" @mouseleave="showMenu = false">
+  <div @mouseover="showMenu = true" @mouseleave="showMenu = false" class="dropdown-wrapper">
+    <!-- <div> -->
       <img src="../assets/user-01.svg">
-      <div class="dropdown-content" v-show="showMenu">
-        <ul>
-          <li>
-            <div class="user">
-              <img src="../assets/fill-1.svg">
-              <span>Ernesto G...</span>
+      <div id="dropdown-fix">
+        <div class="dropdown-content" v-show="showMenu" >
+          <ul>
+            <li>
+              <div class="user">
+                <img src="../assets/fill-1.svg">
+                <span>Ernesto G...</span>
+              </div>
+            </li>
+            <li class="user-gray">
+              <img src="../assets/user-gray.svg" alt="">
+              <span>User 03</span>
+            </li>
+            <li class="user-gray last">
+              <img src="../assets/user-gray.svg" alt="">
+              <span>User 04</span>
+            </li>
+            <div class="button-dropdown">
+              <li class="buttons">Configuración</li>
+              <hr class="button-separator">
+              <li class="buttons">Ayuda</li>
+              <hr class="button-separator">
+              <li class="buttons"><strong>Log Out</strong></li>
             </div>
-          </li>
-          <li class="user-gray">
-            <img src="../assets/user-gray.svg" alt="">
-            <span>User 03</span>
-          </li>
-          <li class="user-gray last">
-            <img src="../assets/user-gray.svg" alt="">
-            <span>User 04</span>
-          </li>
-          <div class="button-dropdown">
-            <li class="buttons">Configuración</li>
-            <hr class="button-separator">
-            <li class="buttons">Ayuda</li>
-            <hr class="button-separator">
-            <li class="buttons"><strong>Log Out</strong></li>
-          </div>
-        </ul>
+          </ul>
+        </div>
       </div>
   </div>
 </template>
@@ -57,8 +60,20 @@ export default {
     font-size: 12px;
   }
 
+  #dropdown-fix::before {
+    content: '';
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 19px;
+    left: 0px;
+    width: 34px;
+    // border: 1px solid red;
+    height: 32px;
+  }
+
   .dropdown-content:before {
-    z-index: -1;
+    // z-index: -1;
     border-bottom: 20px solid white;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -73,7 +88,7 @@ export default {
   }
 
   .dropdown-content:after {
-    z-index: -1;
+    // z-index: -1;
     border-bottom: 20px solid white;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;

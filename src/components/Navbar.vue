@@ -157,12 +157,7 @@ export default {
 
   #btn span {
     margin-top: 1px;
-    max-width: 0;
-    -webkit-transition: max-width 0.1s;
     transition: max-width 0.1s;
-    display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
     overflow: hidden;
   }
   #btn:hover span {
