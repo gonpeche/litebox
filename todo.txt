@@ -11,3 +11,14 @@ performance:
 https://github.com/GoogleChrome/lighthouse/blob/7e5fcf630cd59bddfea0ef5b3cc0b7b243b5cd92/lighthouse-core/config/default-config.js#L371
 https://thinkwithgoogle.com/features/testmysite
 usar lazyLoad imagenes
+data-lazysrc
+https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/
+transformar a webP
+https://codesandbox.io/s/5v17x4zr64
+
+
+Modal:
+https://vuejs.org/v2/examples/modal.html
+https://jsfiddle.net/yyx990803/mwLbw11k/?utm_source=website&utm_medium=embed&utm_campaign=mwLbw11k
+https://codepen.io/alligatorio/pen/MrdLRy
+https://alligator.io/vuejs/vue-modal-component/

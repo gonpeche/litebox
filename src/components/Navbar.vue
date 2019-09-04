@@ -7,12 +7,10 @@
           <li>Películas</li>
           <li>Agregados recientemente</li>
           <li>Mi lista</li>
-          <li @mouseover="showAdd = true" @mouseleave="showAdd = false" class="oval show_add_movie">
-              <img src="../assets/plus.svg" class="plus">
-                <div v-show="showAdd" class="add_movie">
-                  Agregar película
-                </div>
-          </li>
+          <div id="btn" class="oval show_add_movie">
+            <img src="../assets/plus.svg" class="plus">
+            <span class="add_movie">Agregar pelicula</span>
+          </div>
         </ul>
         <ul class="navbar-right">
           <li>Niños</li>
@@ -44,15 +42,6 @@ export default {
     }
   },
   methods: {
-    // showMenuON() {
-    //   setTimeout(() => {
-    //     console.log('que')
-    //     this.showMenu = true
-    //   }, 100)
-    // },
-    // showMenuOF() {
-    //   this.showMenu = false
-    // }
   }
 }
 </script>
@@ -150,6 +139,7 @@ export default {
 
   .oval:hover {
     width: 183px;
+    cursor: pointer
   }
 
   .show_add_movie {
@@ -158,13 +148,25 @@ export default {
   }
 
   .add_movie {
-    // display: block;
-        transition: width 0.1s;
+    position: relative;
+    font-size: 16px;
+    bottom: 4px;
+    padding-left: 5px;
+    color: white;
   }
 
-  .add_movie:hover {
-    width: 183px;
-    // display: block;
+  #btn span {
+    margin-top: 1px;
+    max-width: 0;
+    -webkit-transition: max-width 0.1s;
+    transition: max-width 0.1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #btn:hover span {
+    max-width: 183px;
   }
 
 </style>
