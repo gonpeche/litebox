@@ -7,10 +7,11 @@
           <li>Películas</li>
           <li>Agregados recientemente</li>
           <li>Mi lista</li>
-          <li>
-            <div class="oval">
+          <li @mouseover="showAdd = true" @mouseleave="showAdd = false" class="oval show_add_movie">
               <img src="../assets/plus.svg" class="plus">
-            </div>
+                <div v-show="showAdd" class="add_movie">
+                  Agregar película
+                </div>
           </li>
         </ul>
         <ul class="navbar-right">
@@ -30,6 +31,7 @@
 
 <script>
 import dropdown from '../components/Dropdown';
+import { setTimeout } from 'timers';
 
 export default {
   name: 'navbar',
@@ -38,15 +40,24 @@ export default {
   },
   data () {
     return {
-      showMenu: true
+      showAdd: false
     }
+  },
+  methods: {
+    // showMenuON() {
+    //   setTimeout(() => {
+    //     console.log('que')
+    //     this.showMenu = true
+    //   }, 100)
+    // },
+    // showMenuOF() {
+    //   this.showMenu = false
+    // }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  // @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
   ul {
     margin: 0;
     padding: 0;
@@ -123,14 +134,39 @@ export default {
     height: 15px;
     object-fit: contain;
     position: relative;
-    left: 11px;
-    top: 10px;
+    left: -8px;
+    top: 2px;
   }
 
   .oval {
+    margin-left: 10px;
     width: 40px;
     height: 40px;
     background-color: #ff0000;
     border-radius: 83px;
+    transition: width 0.2s;
+    display:flex;
   }
+
+  .oval:hover {
+    width: 183px;
+  }
+
+  .show_add_movie {
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .add_movie {
+    // display: block;
+        transition: width 0.1s;
+  }
+
+  .add_movie:hover {
+    width: 183px;
+    // display: block;
+  }
+
 </style>
+
+

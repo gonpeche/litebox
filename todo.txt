@@ -4,3 +4,5 @@ optimizar la carga de peliculas
 mejorar el responsive hasta llegar a mobile
 animar la aparición del dropdown
 dropdown no se mantiene abierto
+
+random pic de https://picsum.photos/
