@@ -38,7 +38,8 @@ export default {
   },
   data () {
     return {
-      showAdd: false
+      showAdd: false,
+      isDropped: false
     }
   },
   methods: {
@@ -163,7 +164,6 @@ export default {
   #btn:hover span {
     max-width: 183px;
   }
-
 </style>
 
 

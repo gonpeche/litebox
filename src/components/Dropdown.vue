@@ -1,33 +1,36 @@
 <template>
   <div @mouseover="showMenu = true" @mouseleave="showMenu = false" class="dropdown-wrapper">
-    <!-- <div> -->
       <img src="../assets/user-01.svg">
       <div id="dropdown-fix">
-        <div class="dropdown-content" v-show="showMenu" >
-          <ul>
-            <li>
-              <div class="user">
-                <img src="../assets/fill-1.svg">
-                <span>Ernesto G...</span>
+          <transition name="fade">
+            <template v-if="showMenu">
+              <div class="dropdown-content">
+                <ul>
+                  <li>
+                    <div class="user">
+                      <img src="../assets/fill-1.svg">
+                      <span>Ernesto G...</span>
+                    </div>
+                  </li>
+                  <li class="user-gray">
+                    <img src="../assets/user-gray.svg" alt="">
+                    <span>User 03</span>
+                  </li>
+                  <li class="user-gray last">
+                    <img src="../assets/user-gray.svg" alt="">
+                    <span>User 04</span>
+                  </li>
+                  <div class="button-dropdown">
+                    <li class="buttons">Configuración</li>
+                    <hr class="button-separator">
+                    <li class="buttons">Ayuda</li>
+                    <hr class="button-separator">
+                    <li class="buttons"><strong>Log Out</strong></li>
+                  </div>
+                </ul>
               </div>
-            </li>
-            <li class="user-gray">
-              <img src="../assets/user-gray.svg" alt="">
-              <span>User 03</span>
-            </li>
-            <li class="user-gray last">
-              <img src="../assets/user-gray.svg" alt="">
-              <span>User 04</span>
-            </li>
-            <div class="button-dropdown">
-              <li class="buttons">Configuración</li>
-              <hr class="button-separator">
-              <li class="buttons">Ayuda</li>
-              <hr class="button-separator">
-              <li class="buttons"><strong>Log Out</strong></li>
-            </div>
-          </ul>
-        </div>
+            </template>
+          </transition>
       </div>
   </div>
 </template>
@@ -45,6 +48,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
   .dropdown-content {
     font-family: 'Montserrat', sans-serif;
     display: none;
