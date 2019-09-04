@@ -1,3 +1,5 @@
 de las featured, sortear la mas nueva
 meter spinners a la carga inicial
 optimizar la carga de peliculas
+mejorar el responsive hasta llegar a mobile
+animar la aparición del dropdown

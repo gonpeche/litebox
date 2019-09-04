@@ -18,8 +18,8 @@
           <li>
             <img src="../assets/bell.svg" class="bell">
           </li>
-          <li>
-            <img src="../assets/user-01.svg" class="user-01">
+          <li class="dropdown">
+            <dropdown></dropdown>
           </li>
           <li>
             <img src="../assets/arrow.svg" class="arrow">
@@ -29,12 +29,16 @@
 </template>
 
 <script>
+import dropdown from '../components/Dropdown';
 
 export default {
   name: 'navbar',
+  components: {
+    dropdown
+  },
   data () {
     return {
-
+      showMenu: true
     }
   }
 }
@@ -78,8 +82,14 @@ export default {
       padding-left: 20px;
     }
 
-    &-right li {
-      padding-right: 20px;
+    &-right {
+      li {
+        padding-right: 20px;
+      }
+
+      .dropdown {
+        padding-right: 10px;
+      }
     }
   }
 

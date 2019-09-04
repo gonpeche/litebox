@@ -120,7 +120,7 @@ export default {
   }
 
   .homepage-container {
-    height: 90vh;
+    height: 100vh;
     padding-left: 10%;
     padding-right: 10%;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000);
