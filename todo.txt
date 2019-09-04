@@ -3,3 +3,4 @@ meter spinners a la carga inicial
 optimizar la carga de peliculas
 mejorar el responsive hasta llegar a mobile
 animar la aparición del dropdown
+dropdown no se mantiene abierto

@@ -1,20 +1,29 @@
 <template>
   <div @mouseover="showMenu = true" @mouseleave="showMenu = false">
-      <img src="../assets/user-01.svg" class="user-01">
+      <img src="../assets/user-01.svg">
       <div class="dropdown-content" v-show="showMenu">
         <ul>
           <li>
-            <img src="../assets/fill-1.svg" class="Fill-1">
-            <span>Ernesto G...</span>
+            <div class="user">
+              <img src="../assets/fill-1.svg">
+              <span>Ernesto G...</span>
+            </div>
           </li>
-          <li>
-            <img src="../assets/user-01.svg" alt="">
+          <li class="user-gray">
+            <img src="../assets/user-gray.svg" alt="">
             <span>User 03</span>
           </li>
-          <li>
-            <img src="../assets/user-01.svg" alt="">
+          <li class="user-gray last">
+            <img src="../assets/user-gray.svg" alt="">
             <span>User 04</span>
           </li>
+          <div class="button-dropdown">
+            <li class="buttons">Configuración</li>
+            <hr class="button-separator">
+            <li class="buttons">Ayuda</li>
+            <hr class="button-separator">
+            <li class="buttons"><strong>Log Out</strong></li>
+          </div>
         </ul>
       </div>
   </div>
@@ -33,12 +42,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
-  .dropdown {
-    // padding-right: 10px;
-  }
   .dropdown-content {
+    font-family: 'Montserrat', sans-serif;
     display: none;
     position: absolute;
     z-index: 1;
@@ -46,12 +51,15 @@ export default {
     height: 218px;
     border-radius: 5px;
     background-color: white;
+    color: black;
     left: -77px;
     top: 40px;
+    font-size: 12px;
   }
 
   .dropdown-content:before {
-    border-bottom: 20px solid #ffffff;
+    z-index: -1;
+    border-bottom: 20px solid white;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     content: "";
@@ -65,7 +73,8 @@ export default {
   }
 
   .dropdown-content:after {
-    border-bottom: 20px solid #ffffff;
+    z-index: -1;
+    border-bottom: 20px solid white;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     content: "";
@@ -81,14 +90,54 @@ export default {
   .dropdown-content {
     display: block;
   }
-  // .dropdown:hover .dropdown-content {
-  //   display: block;
-  // }
 
-  .Fill-1 {
-    width: 13.3px;
-    height: 15px;
-    object-fit: contain;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    padding-top: 11px;
+    padding-right: 9px;
   }
 
+  .user {
+    width: 111px;
+    height: 37px;
+    border-radius: 18.5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    padding-top: 5px;
+    padding-left: 5px;
+
+    &-gray {
+      padding-top: 6px;
+      padding-left: 5px;
+      color: #9b9b9b;
+    }
+  }
+
+  span {
+    padding-left: 3px;
+  }
+
+  .last {
+    padding-top: 10px;
+  }
+
+  .buttons {
+    padding-top: 8px;
+    padding-bottom: 5px;
+  }
+
+  .button-dropdown {
+    padding-top: 16px;
+  }
+
+  .button-separator {
+    margin: 0;
+    padding: 0;
+  }
 </style>

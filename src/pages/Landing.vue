@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
 
   .landing-wrapper {
