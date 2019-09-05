@@ -25,13 +25,11 @@ export default {
     padding: 0;
     margin: 0;
     color: white;
-    position: relative;
-    bottom: 100px;
+    margin-top: 90px;
   }
 
   .proximamente-title {
-    width: 121px;
-    height: 24px;
+    margin-bottom: 20.3px;
     font-family: Montserrat;
     font-size: 20px;
     font-weight: bold;

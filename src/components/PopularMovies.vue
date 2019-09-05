@@ -21,11 +21,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .popular-title {
+    margin-top: 40px;
+  }
   h2 {
     width: 256px;
     font-family: 'Montserrat', sans-serif;
     font-size: 19px;
     color: white;
     padding-bottom: 9px;
+    margin: 0;
   }
 </style>

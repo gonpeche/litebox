@@ -1,8 +1,19 @@
 <template>
   <div class="showmovies-container">
     <template v-for="(movie, i) in movies">
-      <div v-bind:key="i">
-        <img :src="getPic(movie)" width="255" :height="getHeight()">
+      <div v-bind:key="i" @mouseover="showByIndex = i" @mouseout="showByIndex = null" class="ancestor">
+        <img :src="getPic(movie)" width="255" :height="getHeight()" class="image">
+        <div class="movieHovered" v-show="showByIndex === i">
+          <template v-if="getType()">
+            <img src="../assets/add-list.svg" alt="">
+            <img src="../assets/like-hovered.svg" alt="">
+            <img src="../assets/play.svg" alt="">
+            <img src="../assets/arrow_hover.svg" alt="">
+          </template>
+          <template v-else>
+            <h1>Popular</h1>
+          </template>
+        </div>
       </div>
     </template>
   </div>
@@ -15,10 +26,15 @@ export default {
   props: ['movies'],
   data () {
     return {
-
+      showByIndex: null
     }
   },
   methods: {
+    getType() {
+      if (this.$attrs.type === 'upcoming') {
+        return true
+      }
+    },
     getPic(url) {
       if (this.$attrs.type === 'upcoming') {
         return 'https://image.tmdb.org/t/p/w500/' + url.backdrop_path;
@@ -30,7 +46,7 @@ export default {
       if (this.$attrs.type === 'upcoming') {
         return 155
       } else {
-        return 509
+        return 450
       }
     }
   }
@@ -46,6 +62,45 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.ancestor {
+  position: relative;
+  border: 1px solid red;
+}
+
+.movieHovered {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  left: 50%;
+  color: white;
+  transition: .5s ease;
+  opacity: 0;
+
+}
+.image {
+  opacity: 1;
+  transition: .5s ease;
+}
+
+.showmovies-container:hover .movieHovered {
+  opacity: 1;
+}
+
+.ancestor:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  bottom: 0;
+  transition: height 0.2s ease-out;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.ancestor:hover:before {
+  height: 100%;
 }
 
 </style>

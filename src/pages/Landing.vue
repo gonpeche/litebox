@@ -1,5 +1,4 @@
-<template>
-  <div class="landing-wrapper">
+  <!-- <div class="landing-wrapper">
     <div class='homepage-container' v-bind:style="{ 'background-image': featuredMovie.image }">
       <navbar></navbar>
       <main-content :featuredMovie="featuredMovie"></main-content>
@@ -8,6 +7,14 @@
       <proximamente :movies="upcomingMovies" type='upcoming'></proximamente>
       <popular-movies :movies="popularMovies" type='popular'></popular-movies>
     </div>
+  </div> -->
+
+<template>
+  <div class='homepage-container' v-bind:style="{ 'background-image': featuredMovie.image }">
+    <navbar></navbar>
+    <main-content :featuredMovie="featuredMovie"></main-content>
+    <proximamente :movies="upcomingMovies" type='upcoming'></proximamente>
+    <popular-movies :movies="popularMovies" type='popular'></popular-movies>
   </div>
 </template>
 
@@ -73,9 +80,9 @@ export default {
         const response = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20')
 
         const featuredMovie = {
-          title: response.data.results[1].title,
-          description: response.data.results[1].overview,
-          image: this.getBackgroundImage(response.data.results[1].backdrop_path)
+          title: response.data.results[5].title,
+          description: response.data.results[5].overview,
+          image: this.getBackgroundImage(response.data.results[5].backdrop_path)
         }
         return featuredMovie
       } catch (error) {
@@ -115,12 +122,13 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
 
-  .landing-wrapper {
-    background-color: black;
-  }
+  // .landing-wrapper {
+  //   background-color: black;
+  // }
 
   .homepage-container {
-    height: 90vh;
+    background-color: black;
+    height: 760px;
     padding-left: 10%;
     padding-right: 10%;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000);
