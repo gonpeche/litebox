@@ -15,7 +15,19 @@
     <div class="modal-backdrop" role="dialog">
       <div class="modal-container-" ref="modal">
         <div class="modal-popup">
-          <header class="modal-header">
+          <div class="modal-popup-content">
+            <div class="modal-popup-content-header">
+              <img src="../assets/clip.svg" class="clip">
+              <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+            </div>
+            <div>
+              NIMBRE DE LA PELÍCULA
+            </div>
+            <div>
+              CATEGORÍA
+            </div>
+          </div>
+          <!-- <header class="modal-header">
             <slot name="header">
               <h2>
                 This is the default tile!
@@ -39,14 +51,16 @@
                 Close me!
               </button>
             </slot>
-          </footer>
+          </footer> -->
         </div>
       </div>
     </div>
   </transition>
 </template>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
 .btn {
   padding: 8px 16px;
   border-radius: 3px;
@@ -76,47 +90,50 @@
   padding: 20%;
 }
 
-.modal-popup {
-  background-color: white;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 15px;
-  display: flex;
-}
-
-.modal-header {
-  border-bottom: 1px solid #eeeeee;
-  color: #4aae9b;
-  justify-content: space-between;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  justify-content: flex-end;
-}
-
-.modal-body {
+.clip {
   position: relative;
-  padding: 20px 10px;
+  left: 40px;
 }
 
-.btn-close {
-  border: none;
-  font-size: 20px;
-  padding: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
-}
+.modal-popup {
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  width: 730px;
+  height: 354px;
+  border-radius: 10px;
+  border: 1px solid red;
 
-.btn {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
+  &-content {
+    margin-top: 30px;
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 297px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &-header {
+      border: solid 1px #9b9b9b;
+      border-style: dashed;
+      border-radius: 10px;
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      color: #9b9b9b;
+      font-size: 16px;
+      padding-right: 100px;
+      letter-spacing: 0;
+
+      .add-file {
+        font-weight: 700;
+        // font-size: 16px;
+        color: #0076ff;
+      }
+    }
+  }
 }
 
 .modal-fade-enter,
@@ -128,5 +145,6 @@
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
 }
+
 
 </style>
