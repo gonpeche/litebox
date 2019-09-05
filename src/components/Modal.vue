@@ -2,13 +2,24 @@
   export default {
     name: 'modal',
     template: '#modal',
+    data () {
+      return {
+        nombre: '',
+        categoria: ''
+      }
+    },
     methods: {
       close(event) {
         this.$emit('close');
       },
+      uploadMovie() {
+        console.log(this.nombre, this.categoria)
+      }
     },
   };
 </script>
+
+
 
 <template>
 <transition name="modal-fade">
@@ -18,7 +29,7 @@
           <div class="modal-popup-content">
 
             <div class="modal-popup-content-top">
-
+              <span class="close-modal" @click="close">x</span>
               <div class="modal-popup-content-header">
                 <img src="../assets/clip.svg" class="clip">
                 <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
@@ -27,17 +38,29 @@
               <div class="modal-popup-content-body">
                 <div class="modal-popup-content-body-name">
                   <div>NOMBRE DE LA PELÍCULA</div>
-                  <input type="text">
+                  <input type="text" v-model="nombre">
                 </div>
                 <div class="modal-popup-content-body-category">
                   <div>CATEGORIA</div>
-                  <input type="text">
+                  <div>
+                    <select v-model="categoria" class="input-form">
+                      <option disabled value=""></option>
+                      <option>Acción</option>
+                      <option>Animación</option>
+                      <option>Aventuras</option>
+                      <option>Ciencia Ficción</option>
+                      <option>Comedia</option>
+                      <option>Documentales</option>
+                      <option>Drama</option>
+                      <option>Thriller</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
             </div>
 
-            <div class="modal-popup-content-bottom">
+            <div class="modal-popup-content-bottom" @click="uploadMovie">
                 Subir Película
             </div>
 
@@ -182,6 +205,7 @@
       font-size: 16px;
       font-weight: 400;
       color: white;
+      cursor: pointer;
     }
   }
 }
@@ -197,5 +221,27 @@
   transition: opacity 0.5s ease;
 }
 
+.input-form {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  height: 36px;
+  border-bottom: solid 1.2px #0076ff;
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #000000;
+}
+
+.close-modal {
+  position: relative;
+  float: right;
+  top: -29px;
+  left: 23px;
+  width: 7px;
+  height: 7px;
+  cursor: pointer;
+}
 
 </style>
