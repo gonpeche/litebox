@@ -1,14 +1,3 @@
-  <!-- <div class="landing-wrapper">
-    <div class='homepage-container' v-bind:style="{ 'background-image': featuredMovie.image }">
-      <navbar></navbar>
-      <main-content :featuredMovie="featuredMovie"></main-content>
-    </div>
-    <div class='movies-wrapper'>
-      <proximamente :movies="upcomingMovies" type='upcoming'></proximamente>
-      <popular-movies :movies="popularMovies" type='popular'></popular-movies>
-    </div>
-  </div> -->
-
 <template>
   <div class='homepage-container' v-bind:style="{ 'background-image': featuredMovie.image }">
     <navbar></navbar>

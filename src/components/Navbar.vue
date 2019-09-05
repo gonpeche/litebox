@@ -7,10 +7,11 @@
           <li>Películas</li>
           <li>Agregados recientemente</li>
           <li>Mi lista</li>
-          <div id="btn" class="oval show_add_movie">
+          <div id="btn" class="oval show_add_movie"  @click="showModal">
             <img src="../assets/plus.svg" class="plus">
             <span class="add_movie">Agregar película</span>
           </div>
+          <modal v-show="isModalVisible" @close="closeModal" />
         </ul>
         <ul class="navbar-right">
           <li>Niños</li>
@@ -29,20 +30,28 @@
 
 <script>
 import dropdown from '../components/Dropdown';
-import { setTimeout } from 'timers';
+import modal from '../components/Modal'
 
 export default {
   name: 'navbar',
   components: {
-    dropdown
+    dropdown,
+    modal
   },
   data () {
     return {
       showAdd: false,
-      isDropped: false
+      isDropped: false,
+      isModalVisible: false,
     }
   },
   methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }
   }
 }
 </script>
