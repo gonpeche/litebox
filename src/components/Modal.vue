@@ -16,42 +16,34 @@
       <div class="modal-container-" ref="modal">
         <div class="modal-popup">
           <div class="modal-popup-content">
-            <div class="modal-popup-content-header">
-              <img src="../assets/clip.svg" class="clip">
-              <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+
+            <div class="modal-popup-content-top">
+
+              <div class="modal-popup-content-header">
+                <img src="../assets/clip.svg" class="clip">
+                <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+              </div>
+
+              <div class="modal-popup-content-body">
+                <div class="modal-popup-content-body-name">
+                  <div>NOMBRE DE LA PELÍCULA</div>
+                  <input type="text">
+                </div>
+                <div class="modal-popup-content-body-category">
+                  <div>CATEGORIA</div>
+                  <input type="text">
+                </div>
+              </div>
+
             </div>
-            <div>
-              NIMBRE DE LA PELÍCULA
+
+            <div class="modal-popup-content-bottom">
+              <div>
+                ACTION BUTTON
+              </div>
             </div>
-            <div>
-              CATEGORÍA
-            </div>
+
           </div>
-          <!-- <header class="modal-header">
-            <slot name="header">
-              <h2>
-                This is the default tile!
-              </h2>
-
-              <button type="button" class="btn-close btn-right" @click="close" aria-label="Close modal">
-                x
-              </button>
-            </slot>
-          </header>
-
-          <section class="modal-body">
-            <slot name="body">
-              I'm the default body!
-            </slot>
-          </section>
-
-          <footer class="modal-footer">
-            <slot name="footer">
-              <button type="button" class="btn btn-green" @click="close" aria-label="Close modal">
-                Close me!
-              </button>
-            </slot>
-          </footer> -->
         </div>
       </div>
     </div>
@@ -59,7 +51,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 
 .btn {
   padding: 8px 16px;
@@ -92,7 +84,7 @@
 
 .clip {
   position: relative;
-  left: 40px;
+  left: 43px;
 }
 
 .modal-popup {
@@ -108,15 +100,19 @@
     margin-left: 35px;
     margin-right: 35px;
     height: 297px;
-    border: 1px solid green;
+    // border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
+    &-top {
+      width: 100%;
+    }
+
     &-header {
-      border: solid 1px #9b9b9b;
-      border-style: dashed;
+      // border: solid 1px #9b9b9b;
+      border-style: dotted;
       border-radius: 10px;
       height: 100px;
       width: 100%;
@@ -124,7 +120,7 @@
       align-items: center;
       color: #9b9b9b;
       font-size: 16px;
-      padding-right: 100px;
+      padding-right: 65px;
       letter-spacing: 0;
 
       .add-file {
@@ -133,8 +129,50 @@
         color: #0076ff;
       }
     }
+
+    &-body {
+        // border: 1px solid pink;
+        padding-top: 30px;
+        // margin: 0;
+        // padding: 0;
+        color: #9b9b9b;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 5px;
+        font-family: 'Montserrat', sans-serif;
+
+        &-name {
+          width: 50%;
+          padding-right: 30px;
+          // border: 1px solid yellow;
+        }
+        &-category {
+          width: 50%;
+          // border: 1px solid blue;
+        }
+
+        input {
+          width: 100%;
+          border: 0;
+          outline: 0;
+          height: 36px;
+          border-bottom: solid 1.2px #0076ff;
+        }
+
+        input[type="text"] {
+          font-size: 16px;
+          font-weight: 400;
+          letter-spacing: 0;
+          color: #000000;
+        }
+    }
   }
 }
+
 
 .modal-fade-enter,
 .modal-fade-leave-active {
