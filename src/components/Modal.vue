@@ -38,9 +38,7 @@
             </div>
 
             <div class="modal-popup-content-bottom">
-              <div>
-                ACTION BUTTON
-              </div>
+                Subir Película
             </div>
 
           </div>
@@ -93,7 +91,7 @@
   width: 730px;
   height: 354px;
   border-radius: 10px;
-  border: 1px solid red;
+  border: 1px solid transparent;
 
   &-content {
     margin-top: 30px;
@@ -161,6 +159,7 @@
           outline: 0;
           height: 36px;
           border-bottom: solid 1.2px #0076ff;
+          opacity: 0.8;
         }
 
         input[type="text"] {
@@ -169,6 +168,20 @@
           letter-spacing: 0;
           color: #000000;
         }
+    }
+
+    &-bottom {
+      width: 350px;
+      height: 70px;
+      border-radius: 35px;
+      background-color: #dedede;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      color: white;
     }
   }
 }
