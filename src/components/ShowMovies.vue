@@ -4,15 +4,15 @@
       <div v-bind:key="i" @mouseover="showByIndex = i" @mouseout="showByIndex = null" class="ancestor">
         <img :src="getPic(movie)" width="255" :height="getHeight()" class="image">
         <div class="movieHovered" v-show="showByIndex === i">
-          <template v-if="getType()">
-            <img src="../assets/add-list.svg" alt="">
-            <img src="../assets/like-hovered.svg" alt="">
-            <img src="../assets/play.svg" alt="">
-            <img src="../assets/arrow_hover.svg" alt="">
-          </template>
-          <template v-else>
+          <!-- <template v-if="getType()">  -->
+            <img class="add-btn" src="../assets/add-list.svg" alt="">
+            <img class="like-btn" src="../assets/like-hovered.svg" alt="">
+            <img class="play-btn" src="../assets/play.svg" alt="">
+            <img class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
+          <!-- </template> -->
+          <!-- <template v-else>
             <h1>Popular</h1>
-          </template>
+          </template> -->
         </div>
       </div>
     </template>
@@ -66,7 +66,6 @@ export default {
 
 .ancestor {
   position: relative;
-  border: 1px solid red;
 }
 
 .movieHovered {
@@ -78,14 +77,18 @@ export default {
   color: white;
   transition: .5s ease;
   opacity: 0;
-
 }
+
 .image {
   opacity: 1;
   transition: .5s ease;
 }
 
-.showmovies-container:hover .movieHovered {
+.showmovies-container:hover .movieHovered{
+  opacity: 1;
+}
+
+.showmovies-container:hover .add-btn{
   opacity: 1;
 }
 
@@ -101,6 +104,17 @@ export default {
 }
 .ancestor:hover:before {
   height: 100%;
+}
+
+.add-btn {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  left: 50%;
+  color: white;
+  transition: .5s ease;
+  opacity: 0;
 }
 
 </style>

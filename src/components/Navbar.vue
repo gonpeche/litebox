@@ -9,7 +9,7 @@
           <li>Mi lista</li>
           <div id="btn" class="oval show_add_movie">
             <img src="../assets/plus.svg" class="plus">
-            <span class="add_movie">Agregar pelicula</span>
+            <span class="add_movie">Agregar película</span>
           </div>
         </ul>
         <ul class="navbar-right">
@@ -149,11 +149,13 @@ export default {
   }
 
   .add_movie {
+    font-family: 'Montserrat', sans-serif;
     position: relative;
     font-size: 16px;
     bottom: 4px;
-    padding-left: 5px;
+    padding-left: 4px;
     color: white;
+    font-weight: normal;
   }
 
   #btn span {
@@ -164,6 +166,7 @@ export default {
   #btn:hover span {
     max-width: 183px;
   }
+
 </style>
 
 
