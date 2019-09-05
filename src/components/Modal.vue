@@ -13,32 +13,34 @@
 <template>
 <transition name="modal-fade">
     <div class="modal-backdrop" role="dialog">
-      <div class="modal" ref="modal">
-        <header class="modal-header">
-          <slot name="header">
-            <h2>
-              This is the default tile!
-            </h2>
+      <div class="modal-container-" ref="modal">
+        <div class="modal-popup">
+          <header class="modal-header">
+            <slot name="header">
+              <h2>
+                This is the default tile!
+              </h2>
 
-            <button type="button" class="btn-close btn-right" @click="close" aria-label="Close modal">
-              x
-            </button>
-          </slot>
-        </header>
+              <button type="button" class="btn-close btn-right" @click="close" aria-label="Close modal">
+                x
+              </button>
+            </slot>
+          </header>
 
-        <section class="modal-body">
-          <slot name="body">
-            I'm the default body!
-          </slot>
-        </section>
+          <section class="modal-body">
+            <slot name="body">
+              I'm the default body!
+            </slot>
+          </section>
 
-        <footer class="modal-footer">
-          <slot name="footer">
-            <button type="button" class="btn btn-green" @click="close" aria-label="Close modal">
-              Close me!
-            </button>
-          </slot>
-        </footer>
+          <footer class="modal-footer">
+            <slot name="footer">
+              <button type="button" class="btn btn-green" @click="close" aria-label="Close modal">
+                Close me!
+              </button>
+            </slot>
+          </footer>
+        </div>
       </div>
     </div>
   </transition>
@@ -58,18 +60,24 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modal {
-  background: #ffffff;
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 20px 1px;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
+  padding: 20%;
+}
+
+.modal-popup {
+  background-color: white;
 }
 
 .modal-header,
