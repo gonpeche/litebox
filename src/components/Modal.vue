@@ -75,8 +75,8 @@ export default {
   },
   methods: {
     close(event) {
-      this.categoria = '';
-      this.nombre = '';
+      this.category = '';
+      this.name = '';
       this.$emit('close');
     },
     uploadMovie() {

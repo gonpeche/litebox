@@ -1,8 +1,24 @@
 <template>
   <div class="progress-container">
-    <div class="progress-title"> Cargando {{width}}%</div>
-    <div class="progress-bar" style="--width: 10" data-label=""></div>
-    <div class="progress-footer">CANCELAR</div>
+    <template v-if="loading">
+      <div class="progress-title"> Cargando {{width}}%</div>
+      <div class="progress-bar" style="--width: 10" data-label=""></div>
+      <div class="progress-footer">CANCELAR</div>
+    </template>
+
+    <template v-if="readyUpload">
+      <div class="progress-title"><strong>100% Cargado</strong></div>
+      <div class="progress-bar" style="--width: 10" data-label=""></div>
+      <div class="progress-footer">CANCELAR</div>
+    </template>
+
+    <template v-if="error">
+      <div class="progress-title"> <strong>Error!</strong> No se pudo cargar la película</div>
+      <div id="error" style="--width: 10" data-label=""></div>
+      <div class="progress-footer">REINTENTAR</div>
+    </template>
+
+
   </div>
 </template>
 
@@ -12,7 +28,10 @@ export default {
   props: [],
   data() {
     return {
-      width: 0
+      width: 0,
+      loading: true,
+      error: false,
+      readyUpload: false
     };
   },
   mounted() {
@@ -32,8 +51,11 @@ export default {
 
         if (width <= 100) {
           self.width = Math.round(width);
-          progressBar.style.setProperty("--width", width + 0.2);
+          progressBar.style.setProperty("--width", width + 0.5);
         } else {
+
+          self.handleUploadStatus()
+
           clearInterval(intervalId);
         }
       };
@@ -43,6 +65,18 @@ export default {
       };
 
       start();
+    },
+    handleUploadStatus() {
+      const random = Math.floor(Math.random() * Math.floor(2));
+
+      if (random === 0) {
+        this.error = true;
+        this.loading = false;
+      } else {
+        this.loading = false;
+        this.readyUpload = true
+      }
+
     }
   }
 };
@@ -84,6 +118,14 @@ export default {
     border-radius: 1.5em;
     color: white;
     padding-top: 10px;
+
+    .error {
+          background-color: transparent;
+    position: relative;
+    border-radius: 1.5em;
+    color: white;
+    padding-top: 10px;
+    }
   }
 
   &-footer {
@@ -97,12 +139,9 @@ export default {
 
 .progress-bar::before {
   content: attr(data-label);
-  // display: flex;
   align-items: center;
   max-width: 265px;
-    // width: 265px;
   height: 20px;
-  // position: absolute;
   left: 0.5em;
   top: 0.5em;
   bottom: 0.5em;
@@ -110,6 +149,24 @@ export default {
   min-width: 2rem;
   max-width: 100%;
   background-color: #7ed321;
+  border-radius: 1em;
+  padding-top: 20px;
+}
+
+#error {
+  border: 1px solid red;
+    content: attr(data-label);
+  align-items: center;
+  max-width: 265px;
+  height: 20px;
+  left: 0.5em;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: calc(var(--width, 0) * 1%);
+  min-width: 2rem;
+  max-width: 100%;
+  background-color: red;
+  margin-top: 10px;
   border-radius: 1em;
   padding-top: 20px;
 }
