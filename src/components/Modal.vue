@@ -4,32 +4,30 @@
       <div class="modal-container-" ref="modal">
         <div class="modal-popup">
           <div class="modal-popup-content">
-
             <div class="modal-popup-content-top">
               <span class="close-modal" @click="close">x</span>
 
               <template v-if="startLoading">
-                <progress-bar></progress-bar>
+                <progress-bar :validateUpload="validateUpload" :init="init"></progress-bar>
               </template>
 
               <template v-if="!startLoading">
                 <div class="modal-popup-content-header">
-                  <img src="../assets/clip.svg" class="clip">
+                  <img src="../assets/clip.svg" class="clip" />
                   <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
                 </div>
               </template>
 
-
               <div class="modal-popup-content-body">
                 <div class="modal-popup-content-body-name">
                   <div>NOMBRE DE LA PELÍCULA</div>
-                  <input type="text" v-model="name">
+                  <input type="text" v-model="name" />
                 </div>
                 <div class="modal-popup-content-body-category">
                   <div>CATEGORIA</div>
                   <div>
                     <select v-model="category" class="input-form">
-                      <option disabled value=""></option>
+                      <option disabled value></option>
                       <option>Acción</option>
                       <option>Animación</option>
                       <option>Aventuras</option>
@@ -43,9 +41,11 @@
                 </div>
               </div>
             </div>
-            <div class="modal-popup-content-bottom" @click="uploadMovie">
-                Subir Película
-            </div>
+            <div
+              class="modal-popup-content-bottom"
+              v-bind:class="{ active: readyToUpload }"
+              @click="uploadMovie"
+            >Subir Película</div>
           </div>
         </div>
       </div>
@@ -54,41 +54,69 @@
 </template>
 
 <script>
-import progressBar from '../components/ProgressBar';
+import progressBar from "../components/ProgressBar";
+import { get } from "https";
 
 export default {
-  name: 'modal',
-  template: '#modal',
+  name: "modal",
+  template: "#modal",
   components: {
-    'progress-bar': progressBar
+    "progress-bar": progressBar
   },
-  data () {
+  data() {
     return {
-      name: '',
-      category: ''
-    }
+      name: "",
+      category: "",
+      readyToUpload: false
+    };
   },
   computed: {
-    startLoading: function () {
-      return !!this.name && !!this.category
+    startLoading: function() {
+      return !!this.name && !!this.category;
     }
   },
   methods: {
-    close(event) {
-      this.category = '';
-      this.name = '';
-      this.$emit('close');
+    init() {
+      this.category = "";
+      this.name = "";
+      this.readyToUpload = false;
+    },
+    close() {
+      this.init()
+      this.$emit("close");
+    },
+    validateUpload() {
+      this.readyToUpload = true;
     },
     uploadMovie() {
-      this.progressBar = !this.progressBar
-      console.log(this.nombre, this.categoria)
-    },
-  },
+      if (this.readyToUpload) {
+          console.log('upload!')
+          let selectedMovie = {
+            name: this.name,
+            category: this.category
+          };
+
+          this.$store.commit("change", selectedMovie);
+          if (this.readyToUpload) {
+            const getMovie = this.$store.getters.selectedMovie;
+
+            let selectedMovie = {
+              title: getMovie.name,
+              category: getMovie.category
+            };
+
+            localStorage.setItem("selectedMovie", selectedMovie);
+            this.close();
+          }
+
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 
 .btn {
   padding: 8px 16px;
@@ -125,7 +153,7 @@ export default {
 }
 
 .modal-popup {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: white;
   width: 730px;
   height: 354px;
@@ -168,45 +196,45 @@ export default {
     }
 
     &-body {
-        // border: 1px solid pink;
-        padding-top: 30px;
-        // margin: 0;
-        // padding: 0;
-        color: #9b9b9b;
+      // border: 1px solid pink;
+      padding-top: 30px;
+      // margin: 0;
+      // padding: 0;
+      color: #9b9b9b;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 5px;
+      font-family: "Montserrat", sans-serif;
+
+      &-name {
+        width: 50%;
+        padding-right: 30px;
+        // border: 1px solid yellow;
+      }
+      &-category {
+        width: 50%;
+        // border: 1px solid blue;
+      }
+
+      input {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-weight: 500;
-        font-size: 12px;
-        letter-spacing: 5px;
-        font-family: 'Montserrat', sans-serif;
+        border: 0;
+        outline: 0;
+        height: 36px;
+        border-bottom: solid 1.2px #0076ff;
+        opacity: 0.8;
+      }
 
-        &-name {
-          width: 50%;
-          padding-right: 30px;
-          // border: 1px solid yellow;
-        }
-        &-category {
-          width: 50%;
-          // border: 1px solid blue;
-        }
-
-        input {
-          width: 100%;
-          border: 0;
-          outline: 0;
-          height: 36px;
-          border-bottom: solid 1.2px #0076ff;
-          opacity: 0.8;
-        }
-
-        input[type="text"] {
-          font-size: 16px;
-          font-weight: 400;
-          letter-spacing: 0;
-          color: #000000;
-        }
+      input[type="text"] {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: #000000;
+      }
     }
 
     &-bottom {
@@ -225,7 +253,6 @@ export default {
     }
   }
 }
-
 
 .modal-fade-enter,
 .modal-fade-leave-active {
@@ -262,4 +289,8 @@ export default {
   cursor: pointer;
 }
 
+.active {
+  background-color: black;
+  border: 1px solid read;
+}
 </style>

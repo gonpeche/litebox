@@ -4,7 +4,7 @@
       <h1 class="main-container-title">{{featuredMovie.title}}</h1>
       <ul>
         <li class="main-container-button main-container-button-reproducir">
-          <img src="../assets/play.svg">
+          <img class="play" src="../assets/reproducir.svg">
           <span>Reproducir</span>
         </li>
         <li class="main-container-button">

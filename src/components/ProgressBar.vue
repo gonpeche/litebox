@@ -9,13 +9,13 @@
     <template v-if="readyUpload">
       <div class="progress-title"><strong>100% Cargado</strong></div>
       <div class="progress-bar" style="--width: 10" data-label=""></div>
-      <div class="progress-footer">CANCELAR</div>
+      <div class="progress-footer" @click="init">CANCELAR</div>
     </template>
 
     <template v-if="error">
       <div class="progress-title"> <strong>Error!</strong> No se pudo cargar la película</div>
       <div id="error" style="--width: 10" data-label=""></div>
-      <div class="progress-footer">REINTENTAR</div>
+      <div class="progress-footer" @click="init">REINTENTAR</div>
     </template>
 
 
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: "progressBar",
-  props: [],
+  props: ['validateUpload', 'init'],
   data() {
     return {
       width: 0,
@@ -72,9 +72,11 @@ export default {
       if (random === 0) {
         this.error = true;
         this.loading = false;
+        this.readyUpload = false;
       } else {
         this.loading = false;
-        this.readyUpload = true
+        this.readyUpload = true;
+        this.validateUpload()
       }
 
     }
