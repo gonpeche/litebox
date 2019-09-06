@@ -1,28 +1,5 @@
-<script>
-  export default {
-    name: 'modal',
-    template: '#modal',
-    data () {
-      return {
-        nombre: '',
-        categoria: ''
-      }
-    },
-    methods: {
-      close(event) {
-        this.$emit('close');
-      },
-      uploadMovie() {
-        console.log(this.nombre, this.categoria)
-      }
-    },
-  };
-</script>
-
-
-
 <template>
-<transition name="modal-fade">
+  <transition name="modal-fade">
     <div class="modal-backdrop" role="dialog">
       <div class="modal-container-" ref="modal">
         <div class="modal-popup">
@@ -30,10 +7,20 @@
 
             <div class="modal-popup-content-top">
               <span class="close-modal" @click="close">x</span>
-              <div class="modal-popup-content-header">
-                <img src="../assets/clip.svg" class="clip">
-                <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
-              </div>
+
+              <template v-if="progressBar">
+                <progress-bar></progress-bar>
+                <!-- <div class="modal-popup-content-header">
+                </div> -->
+              </template>
+
+              <template v-if="!progressBar">
+                <div class="modal-popup-content-header">
+                  <img src="../assets/clip.svg" class="clip">
+                  <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+                </div>
+              </template>
+
 
               <div class="modal-popup-content-body">
                 <div class="modal-popup-content-body-name">
@@ -57,19 +44,44 @@
                   </div>
                 </div>
               </div>
-
             </div>
-
             <div class="modal-popup-content-bottom" @click="uploadMovie">
                 Subir Película
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </transition>
 </template>
+
+<script>
+import progressBar from '../components/ProgressBar';
+
+export default {
+  name: 'modal',
+  template: '#modal',
+  components: {
+    'progress-bar': progressBar
+  },
+  data () {
+    return {
+      nombre: '',
+      categoria: '',
+      progressBar: false
+    }
+  },
+  methods: {
+    close(event) {
+      this.$emit('close');
+    },
+    uploadMovie() {
+      this.progressBar = !this.progressBar
+      console.log(this.nombre, this.categoria)
+    }
+  },
+};
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
