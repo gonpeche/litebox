@@ -6,27 +6,38 @@
           <div class="modal-popup-content">
             <div class="modal-popup-content-top">
               <span class="close-modal" @click="close">x</span>
-
               <template v-if="startLoading">
                 <progress-bar :validateUpload="validateUpload" :init="init"></progress-bar>
               </template>
 
               <template v-if="!startLoading">
                 <div class="modal-popup-content-header">
-                  <img src="../assets/clip.svg" class="clip" />
-                  <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+                  <div class="modal-popup-content-header-text">
+                    <img src="../assets/clip.svg" class="clip" />
+                    <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+                  </div>
                 </div>
               </template>
 
               <div class="modal-popup-content-body">
                 <div class="modal-popup-content-body-name">
                   <div>NOMBRE DE LA PELÍCULA</div>
-                  <input type="text" v-model="name" />
+                  <input
+                    type="text"
+                    v-model="name"
+                    class="input"
+                    v-bind:class="{ 'active-input': readyToUpload }"
+                  />
                 </div>
                 <div class="modal-popup-content-body-category">
                   <div>CATEGORIA</div>
                   <div>
-                    <select v-model="category" class="input-form">
+                    <select
+                      v-model="category"
+                      class="input"
+                      id="input-form-focus"
+                      v-bind:class="{ 'active-input': readyToUpload }"
+                    >
                       <option disabled value></option>
                       <option>Acción</option>
                       <option>Animación</option>
@@ -82,7 +93,7 @@ export default {
       this.readyToUpload = false;
     },
     close() {
-      this.init()
+      this.init();
       this.$emit("close");
     },
     validateUpload() {
@@ -90,25 +101,24 @@ export default {
     },
     uploadMovie() {
       if (this.readyToUpload) {
-          console.log('upload!')
+        console.log("upload!");
+        let selectedMovie = {
+          name: this.name,
+          category: this.category
+        };
+
+        this.$store.commit("change", selectedMovie);
+        if (this.readyToUpload) {
+          const getMovie = this.$store.getters.selectedMovie;
+
           let selectedMovie = {
-            name: this.name,
-            category: this.category
+            title: getMovie.name,
+            category: getMovie.category
           };
 
-          this.$store.commit("change", selectedMovie);
-          if (this.readyToUpload) {
-            const getMovie = this.$store.getters.selectedMovie;
-
-            let selectedMovie = {
-              title: getMovie.name,
-              category: getMovie.category
-            };
-
-            localStorage.setItem("selectedMovie", selectedMovie);
-            this.close();
-          }
-
+          localStorage.setItem("selectedMovie", selectedMovie);
+          this.close();
+        }
       }
     }
   }
@@ -188,6 +198,13 @@ export default {
       padding-right: 65px;
       letter-spacing: 0;
 
+      &-text {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: -6px;
+      }
+
       .add-file {
         font-weight: 700;
         // font-size: 16px;
@@ -218,22 +235,6 @@ export default {
       &-category {
         width: 50%;
         // border: 1px solid blue;
-      }
-
-      input {
-        width: 100%;
-        border: 0;
-        outline: 0;
-        height: 36px;
-        border-bottom: solid 1.2px #0076ff;
-        opacity: 0.8;
-      }
-
-      input[type="text"] {
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
-        color: #000000;
       }
     }
 
@@ -292,5 +293,30 @@ export default {
 .active {
   background-color: black;
   border: 1px solid read;
+}
+
+.input {
+  border-bottom: solid 1.2px #0076ff;
+  height: 35px;
+  // padding-top: 9px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.active-input {
+  border-bottom: solid 1.2px black;
+}
+
+*:focus {
+  outline: none;
+}
+
+#input-form-focus {
+    font-size: 15px;
+  font-weight: 500;
 }
 </style>

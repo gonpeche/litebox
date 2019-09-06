@@ -96,7 +96,6 @@ export default {
   padding-bottom: 15px;
   border-radius: 10px;
   background-color: #f3f3f3;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
