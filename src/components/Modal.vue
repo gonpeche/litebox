@@ -8,13 +8,11 @@
             <div class="modal-popup-content-top">
               <span class="close-modal" @click="close">x</span>
 
-              <template v-if="progressBar">
+              <template v-if="startLoading">
                 <progress-bar></progress-bar>
-                <!-- <div class="modal-popup-content-header">
-                </div> -->
               </template>
 
-              <template v-if="!progressBar">
+              <template v-if="!startLoading">
                 <div class="modal-popup-content-header">
                   <img src="../assets/clip.svg" class="clip">
                   <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
@@ -25,12 +23,12 @@
               <div class="modal-popup-content-body">
                 <div class="modal-popup-content-body-name">
                   <div>NOMBRE DE LA PELÍCULA</div>
-                  <input type="text" v-model="nombre">
+                  <input type="text" v-model="name">
                 </div>
                 <div class="modal-popup-content-body-category">
                   <div>CATEGORIA</div>
                   <div>
-                    <select v-model="categoria" class="input-form">
+                    <select v-model="category" class="input-form">
                       <option disabled value=""></option>
                       <option>Acción</option>
                       <option>Animación</option>
@@ -66,19 +64,25 @@ export default {
   },
   data () {
     return {
-      nombre: '',
-      categoria: '',
-      progressBar: false
+      name: '',
+      category: ''
+    }
+  },
+  computed: {
+    startLoading: function () {
+      return !!this.name && !!this.category
     }
   },
   methods: {
     close(event) {
+      this.categoria = '';
+      this.nombre = '';
       this.$emit('close');
     },
     uploadMovie() {
       this.progressBar = !this.progressBar
       console.log(this.nombre, this.categoria)
-    }
+    },
   },
 };
 </script>
@@ -244,6 +248,8 @@ export default {
   font-weight: 400;
   letter-spacing: 0;
   color: #000000;
+  background: white;
+  border-radius: 0;
 }
 
 .close-modal {

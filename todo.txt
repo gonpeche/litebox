@@ -19,3 +19,4 @@ https://codesandbox.io/s/5v17x4zr64
 
 Progress  bar:
 https://github.com/hilongjw/vue-progressbar
+que el porcentaje del cargando vaya en aumento
