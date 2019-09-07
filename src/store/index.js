@@ -13,9 +13,6 @@ const store = new Vuex.Store({
     addToCatalog (state, newMovie) {
       state.catalog.push(newMovie)
     }
-  },
-  getters: {
-    selectedMovie: state => state.selectedMovie
   }
 })
 

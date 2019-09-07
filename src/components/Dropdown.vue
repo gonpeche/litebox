@@ -68,6 +68,7 @@ export default {
     left: -77px;
     top: 40px;
     font-size: 12px;
+    cursor: pointer;
   }
 
   #dropdown-fix::before {

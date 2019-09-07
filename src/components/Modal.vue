@@ -106,13 +106,12 @@ export default {
         category: this.category
       };
 
-      let catalog = localStorage.getItem('catalog');
-      catalog = catalog ? JSON.parse(catalog) : [];
+      // let catalog = localStorage.getItem('catalog');
+      // catalog = catalog ? JSON.parse(catalog) : [];
 
-      catalog.push(selectedMovie)
-      console.log(this)
+      // catalog.push(selectedMovie)
       this.$store.commit('addToCatalog', selectedMovie)
-      localStorage.setItem('catalog', JSON.stringify(catalog));
+      // localStorage.setItem('catalog', JSON.stringify(catalog));
       }
     }
   }
