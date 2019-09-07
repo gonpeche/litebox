@@ -121,8 +121,8 @@ export default {
   .homepage-container {
     background-color: black;
     height: 760px;
-    padding-left: 11%;
-    padding-right: 11%;
+    padding-left: 6%;
+    padding-right: 6%;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000);
     background-size: cover;
   }

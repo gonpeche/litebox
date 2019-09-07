@@ -38,4 +38,15 @@ export default {
     line-height: normal;
     letter-spacing: normal;
   }
+// MOBILE
+
+@media only screen and (max-width: 600px) {
+  .proximamente-container {
+    margin-top: 32px;
+    margin-left: 15px;
+  }
+
+}
+
+
 </style>
