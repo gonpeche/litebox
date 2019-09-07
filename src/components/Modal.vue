@@ -101,24 +101,17 @@ export default {
     },
     uploadMovie() {
       if (this.readyToUpload) {
-        console.log("upload!");
-        let selectedMovie = {
-          name: this.name,
-          category: this.category
-        };
+      let selectedMovie = {
+        name: this.name,
+        category: this.category
+      };
 
-        this.$store.commit("change", selectedMovie);
-        if (this.readyToUpload) {
-          const getMovie = this.$store.getters.selectedMovie;
+      let catalog = localStorage.getItem('catalog');
+      catalog = catalog ? JSON.parse(catalog) : [];
 
-          let selectedMovie = {
-            title: getMovie.name,
-            category: getMovie.category
-          };
+      catalog.push(selectedMovie)
 
-          localStorage.setItem("selectedMovie", selectedMovie);
-          this.close();
-        }
+      localStorage.setItem('catalog', JSON.stringify(catalog));
       }
     }
   }
@@ -316,7 +309,8 @@ export default {
 }
 
 #input-form-focus {
-    font-size: 15px;
+  font-size: 15px;
   font-weight: 500;
+  background-color: transparent;
 }
 </style>

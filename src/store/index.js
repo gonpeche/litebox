@@ -7,12 +7,12 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    selectedMovie: {},
-    catalog: []
+    selectedMovie: {}
+    // catalog: []
   },
   mutations: {
-    change (state, selectedMovie) {
-      state.selectedMovie = selectedMovie
+    addToCatalog (state, selectedMovie) {
+      state.selectedMovie = {}
     }
   },
   getters: {

@@ -51,7 +51,7 @@ export default {
 
         if (width <= 100) {
           self.width = Math.round(width);
-          progressBar.style.setProperty("--width", width + 0.5);
+          progressBar.style.setProperty("--width", width + 0.9);
         } else {
 
           self.handleUploadStatus()
@@ -61,23 +61,26 @@ export default {
       };
 
       let start = function() {
-        intervalId = setInterval(setWidth, 5);
+        intervalId = setInterval(setWidth, 1);
       };
 
       start();
     },
     handleUploadStatus() {
-      const random = Math.floor(Math.random() * Math.floor(2));
+      // const random = Math.floor(Math.random() * Math.floor(2));
 
-      if (random === 0) {
-        this.error = true;
-        this.loading = false;
-        this.readyUpload = false;
-      } else {
-        this.loading = false;
+      // if (random === 0) {
+      //   this.error = true;
+      //   this.loading = false;
+      //   this.readyUpload = false;
+      // } else {
+      //   this.loading = false;
+      //   this.readyUpload = true;
+      //   this.validateUpload()
+      // }
+              this.loading = false;
         this.readyUpload = true;
         this.validateUpload()
-      }
 
     }
   }
@@ -121,7 +124,7 @@ export default {
     padding-top: 10px;
 
     .error {
-          background-color: transparent;
+    background-color: transparent;
     position: relative;
     border-radius: 1.5em;
     color: white;
@@ -135,6 +138,7 @@ export default {
     font-size: 12px;
     font-weight: 700;
     color: #4a4a4a;
+    cursor: pointer;
   }
 }
 
