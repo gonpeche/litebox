@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mobile">
+    <div class="mobile" id="mobile">
       <img class="mobile-menu" src="../assets/menu.svg" alt="" @click="openSideMenu">
       <img class="mobile-liteflix" src="../assets/liteflix.svg" alt="">
       <div id="side-menu" class="side-nav">
@@ -205,25 +205,27 @@ li {
   max-width: 183px;
 }
 
-.mobile {
-  visibility: hidden;
-}
-
-
 // SIDEBAR
-.side-nav-items {
-  display: flex;
-  flex-direction: column;
-  transition: margin-left 0.5s;
-  width: 250px;
+.mobile {
+  display: none;
 }
 
 // MOBILE
 
 @media only screen and (max-width: 600px) {
+  .mobile {
+       display: block;
+    display: initial;
+  }
   .navbar {
     visibility: hidden;
+  }
 
+  .side-nav-items {
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.5s;
+    width: 250px;
   }
 
   .mobile-menu-close {
