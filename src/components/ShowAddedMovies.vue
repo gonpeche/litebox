@@ -57,4 +57,15 @@ export default {
   align-items: center;
 }
 
+// .movie:nth-child(1) {
+//   margin-right: 31px;
+// }
+
+// .movie:nth-child(2) {
+//   margin-right: 31px;
+// }
+
+// .movie:nth-child(3) {
+//   margin-right: 31px;
+// }
 </style>

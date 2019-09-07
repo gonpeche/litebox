@@ -67,21 +67,17 @@ export default {
       start();
     },
     handleUploadStatus() {
-      // const random = Math.floor(Math.random() * Math.floor(2));
+      const random = Math.floor(Math.random() * Math.floor(2));
 
-      // if (random === 0) {
-      //   this.error = true;
-      //   this.loading = false;
-      //   this.readyUpload = false;
-      // } else {
-      //   this.loading = false;
-      //   this.readyUpload = true;
-      //   this.validateUpload()
-      // }
-              this.loading = false;
+      if (random === 0) {
+        this.error = true;
+        this.loading = false;
+        this.readyUpload = false;
+      } else {
+        this.loading = false;
         this.readyUpload = true;
         this.validateUpload()
-
+      }
     }
   }
 };

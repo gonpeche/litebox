@@ -1,129 +1,171 @@
 <template>
-    <div class="main-container">
-      <h2 class="main-container-header">ORIGINAL DE <strong>LITEFLIX</strong></h2>
-      <h1 class="main-container-title">{{featuredMovie.title}}</h1>
-      <ul>
-        <li class="main-container-button main-container-button-reproducir">
-          <img class="play" src="../assets/reproducir.svg">
-          <span>Reproducir</span>
-        </li>
-        <li class="main-container-button">
-          <img src="../assets/plus.svg">
-          <span>Mi Lista</span>
-        </li>
-      </ul>
-      <div class=main-container-footer>
-        <h2 class="main-container-footer-title">Ver película</h2>
-        <p class="main-container-footer-description">
-          {{featuredMovie.description}}
-        </p>
-      </div>
+  <div class="main-container">
+    <h2 class="main-container-header">
+      ORIGINAL DE
+      <strong>LITEFLIX</strong>
+    </h2>
+    <h1 class="main-container-title">{{featuredMovie.title}}</h1>
+    <ul class="buttons-mobile">
+      <li class="main-container-button main-container-button-reproducir">
+        <img class="play" src="../assets/reproducir.svg" />
+        <span>Reproducir</span>
+      </li>
+      <li class="main-container-button my-list">
+        <img src="../assets/plus.svg" class="my-list-mobile" />
+        <img src="../assets/add-list.svg" class="add-list-mobile" />
+        <span>Mi Lista</span>
+      </li>
+    </ul>
+    <div class="main-container-footer">
+      <h2 class="main-container-footer-title">Ver película</h2>
+      <p class="main-container-footer-description">{{featuredMovie.description}}</p>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'mainContent',
-  props: ['featuredMovie'],
+  name: "mainContent",
+  props: ["featuredMovie"],
   components: {},
-  data () {
-    return {
-
-    }
+  data() {
+    return {};
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
+.main-container {
+  color: white;
 
-  .homepage-container {
-    padding-left: 10%;
-    padding-right: 10%;
-    background-color: rgb(59, 59, 59);
-    color: white;
+  &-header {
+    margin-top: 106px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
   }
 
-  .main-container {
-    color: white;
+  &-title {
+    margin-top: 18px;
+    font-family: "Roboto Slab", serif;
+    font-size: 110px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.82;
+    letter-spacing: normal;
+  }
 
-    &-header {
-      margin-top: 106px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 24px;
+  &-button {
+    margin-top: 19px;
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 12px;
+
+    &-reproducir {
+      margin-right: 30px;
+    }
+
+    span {
+      width: 89px;
+      height: 19px;
+      padding-left: 8px;
+      font-family: Montserrat;
+      font-size: 16px;
       font-weight: normal;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
       letter-spacing: normal;
     }
+  }
+
+  &-footer {
+    font-family: Montserrat;
+    font-size: 18px;
 
     &-title {
-      margin-top: 18px;
-      font-family: 'Roboto Slab', serif;
-      font-size: 110px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 0.82;
-      letter-spacing: normal;
+      margin-top: 25px;
+      font-size: 20px;
+      margin-bottom: 0;
+      font-weight: 700;
     }
 
-    &-button {
-      margin-top: 19px;
-      width: 160px;
-      height: 40px;
-      border-radius: 20px;
-      background-color: rgba(0,0,0,0.5);
-      padding-left: 12px;
-
-      &-reproducir {
-        margin-right: 30px;
-      }
-
-      span {
-        width: 89px;
-        height: 19px;
-        padding-left: 8px;
-        font-family: Montserrat;
-        font-size: 16px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-      }
-
+    &-description {
+      font-weight: 400;
     }
+  }
+}
 
-    &-footer {
-      font-family: Montserrat;
-      font-size: 18px;
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-      &-title {
-        margin-top: 25px;
-        font-size: 20px;
-        margin-bottom: 0;
-        font-weight: 700;
-      }
+ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
 
-      &-description {
-        font-weight: 400;
-      }
+.add-list-mobile {
+  visibility: hidden;
+}
+// MOBILE
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    padding-left: 11%;
+    padding-right: 11%;
+    text-align: center;
+
+    &-header {
+      margin: 0;
+      text-align: center;
     }
-
   }
 
-  li {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+
+  .my-list {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 0;
+
+    &-mobile {
+      display: none;
+    }
+    span {
+      display: none;
+    }
   }
 
-  ul {
-    display: flex;
-    flex-direction: row;
+  .buttons-mobile {
     margin: 0;
     padding: 0;
   }
+
+  .add-list-mobile {
+    visibility: visible;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 35px;
+  }
+  .main-container-footer {
+    display: none;
+  }
+
+  .main-container-button-reproducir {
+    margin-left: 60px;
+  }
+}
 </style>

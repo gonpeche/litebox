@@ -48,7 +48,7 @@ export default {
       this.loading = false;
     })
     .catch(error => console.log(error))
-
+  console.log(this)
   },
   methods: {
     async getUpcomingMovies() {
@@ -215,4 +215,13 @@ export default {
     margin: 0;
     padding: 0;
   }
+
+// MOBILE
+
+@media only screen and (max-width: 600px) {
+  .homepage-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 </style>
