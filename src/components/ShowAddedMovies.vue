@@ -57,15 +57,28 @@ export default {
   align-items: center;
 }
 
-// .movie:nth-child(1) {
-//   margin-right: 31px;
-// }
+// MOBILE
 
-// .movie:nth-child(2) {
-//   margin-right: 31px;
-// }
+@media only screen and (max-width: 600px) {
+  .addedMovies-container {
+    margin-top: 32px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 
-// .movie:nth-child(3) {
-//   margin-right: 31px;
-// }
+  .title {
+    margin: 0;
+    // padding-left: 2%;
+  }
+
+  .movies {
+    margin-top: 10px;
+  }
+  .movie {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 </style>
