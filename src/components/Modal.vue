@@ -110,7 +110,8 @@ export default {
       catalog = catalog ? JSON.parse(catalog) : [];
 
       catalog.push(selectedMovie)
-
+      console.log(this)
+      this.$store.commit('addToCatalog', selectedMovie)
       localStorage.setItem('catalog', JSON.stringify(catalog));
       }
     }

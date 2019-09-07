@@ -162,7 +162,7 @@ export default {
     position: relative;
     font-size: 16px;
     bottom: 4px;
-    padding-left: 4px;
+    padding-left: 5px;
     color: white;
     font-weight: normal;
   }

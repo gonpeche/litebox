@@ -4,6 +4,7 @@
     <main-content :featuredMovie="featuredMovie"></main-content>
     <proximamente :movies="upcomingMovies" type='upcoming'></proximamente>
     <popular-movies :movies="popularMovies" type='popular'></popular-movies>
+    <added-manually></added-manually>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import navbar from '../components/Navbar';
 import mainContent from '../components/Main';
 import proximamente from '../components/Proximamente';
 import popularMovies from '../components/PopularMovies';
+import addedManually from '../components/AddedManually';
 import axios from 'axios';
 
 export default {
@@ -20,6 +22,7 @@ export default {
     navbar,
     'main-content': mainContent,
     'popular-movies': popularMovies,
+    'added-manually': addedManually,
     proximamente
   },
   data () {

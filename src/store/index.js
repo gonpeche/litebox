@@ -1,18 +1,17 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import createPersistedState from 'vuex-persistedstate';
+import Vue from 'vue'
+import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    selectedMovie: {}
-    // catalog: []
+    catalog: []
   },
   mutations: {
-    addToCatalog (state, selectedMovie) {
-      state.selectedMovie = {}
+    addToCatalog (state, newMovie) {
+      state.catalog.push(newMovie)
     }
   },
   getters: {
