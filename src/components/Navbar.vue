@@ -1,8 +1,24 @@
 <template>
   <div>
     <div class="mobile">
-      <img class="mobile-menu" src="../assets/menu.svg" alt="">
+      <img class="mobile-menu" src="../assets/menu.svg" alt="" @click="openSideMenu">
       <img class="mobile-liteflix" src="../assets/liteflix.svg" alt="">
+      <div id="side-menu" class="side-nav">
+        <img class="mobile-menu-close" src="../assets/menu.svg" alt="" @click="closeSideMenu">
+        <ul class="side-nav-items">
+          <li>Ernesto Garmendia</li>
+          <li>Cambiar Usuario</li>
+          <li>Configuración</li>
+          <li>Ayuda</li>
+          <li>Novedades</li>
+          <li>Series</li>
+          <li>Películas</li>
+          <li>Mi lista</li>
+          <li>Niños</li>
+          <li>Agregar Película</li>
+          <li>Log Out</li>
+        </ul>
+      </div>
     </div>
     <nav class="navbar">
       <ul class="navbar-left">
@@ -57,6 +73,13 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
+    },
+    openSideMenu() {
+      document.getElementById('side-menu').style.width = '250px'
+      document.getElementById('side-menu').style.color = 'red'
+    },
+    closeSideMenu() {
+      document.getElementById('side-menu').style.width = '0'
     }
   }
 };
@@ -185,11 +208,27 @@ li {
 .mobile {
   visibility: hidden;
 }
+
+
+// SIDEBAR
+.side-nav-items {
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.5s;
+  width: 250px;
+}
+
 // MOBILE
 
 @media only screen and (max-width: 600px) {
   .navbar {
     visibility: hidden;
+
+  }
+
+  .mobile-menu-close {
+    margin-top: 22px;
+    margin-left: 15px;
   }
 
   .mobile {
@@ -203,6 +242,18 @@ li {
       margin-left: 100px;
       padding-top: 12px;
     }
+  }
+
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow: hidden;
+    transition: 0.3s;
   }
 }
 
