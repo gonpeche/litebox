@@ -26,10 +26,13 @@ export default {
 <style lang="scss" scoped>
 .addedMovies-container {
   padding-top: 30px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .title {
   height: 24px;
+  margin-left: 15px;
   font-family: Montserrat;
   font-size: 20px;
   font-weight: bold;
@@ -38,12 +41,13 @@ export default {
 .movies {
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .movie {
   background-color: rgb(122, 121, 121);
+  margin-left: 15px;
+  margin-right: 15px;
   margin-top: 20px;
   width: 255px;
   height: 155px;
@@ -53,15 +57,4 @@ export default {
   align-items: center;
 }
 
-.movie:nth-child(1) {
-  margin-right: 31px;
-}
-
-.movie:nth-child(2) {
-  margin-right: 31px;
-}
-
-.movie:nth-child(3) {
-  margin-right: 31px;
-}
 </style>
