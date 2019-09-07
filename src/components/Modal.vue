@@ -1,63 +1,72 @@
 <template>
   <transition name="modal-fade">
     <div class="modal-backdrop" role="dialog">
-      <div class="modal-container-" ref="modal">
-        <div class="modal-popup">
-          <div class="modal-popup-content">
-            <div class="modal-popup-content-top">
-              <span class="close-modal" @click="close">x</span>
-              <template v-if="startLoading">
-                <progress-bar :validateUpload="validateUpload" :init="init"></progress-bar>
-              </template>
+      <div class="modal-container" ref="modal">
+        <div class="modal-popup" v-bind:class="{ success: movieUploaded }">
+          <span class="close-modal" @click="close">x</span>
 
-              <template v-if="!startLoading">
-                <div class="modal-popup-content-header">
-                  <div class="modal-popup-content-header-text">
-                    <img src="../assets/clip.svg" class="clip" />
-                    <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+          <template v-if="!movieUploaded">
+            <div class="modal-popup-content">
+              <div class="modal-popup-content-top">
+
+                <template v-if="startLoading">
+                  <progress-bar :validateUpload="validateUpload" :init="init"></progress-bar>
+                </template>
+
+                <template v-if="!startLoading">
+                  <div class="modal-popup-content-header">
+                    <div class="modal-popup-content-header-text">
+                      <img src="../assets/clip.svg" class="clip" />
+                      <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
+                    </div>
                   </div>
-                </div>
-              </template>
+                </template>
 
-              <div class="modal-popup-content-body">
-                <div class="modal-popup-content-body-name">
-                  <div>NOMBRE DE LA PELÍCULA</div>
-                  <input
-                    type="text"
-                    v-model="name"
-                    class="input"
-                    v-bind:class="{ 'active-input': readyToUpload }"
-                  />
-                </div>
-                <div class="modal-popup-content-body-category">
-                  <div>CATEGORIA</div>
-                  <div>
-                    <select
-                      v-model="category"
+                <div class="modal-popup-content-body">
+                  <div class="modal-popup-content-body-name">
+                    <div>NOMBRE DE LA PELÍCULA</div>
+                    <input
+                      type="text"
+                      v-model="name"
                       class="input"
-                      id="input-form-focus"
                       v-bind:class="{ 'active-input': readyToUpload }"
-                    >
-                      <option disabled value></option>
-                      <option>Acción</option>
-                      <option>Animación</option>
-                      <option>Aventuras</option>
-                      <option>Ciencia Ficción</option>
-                      <option>Comedia</option>
-                      <option>Documentales</option>
-                      <option>Drama</option>
-                      <option>Thriller</option>
-                    </select>
+                    />
+                  </div>
+                  <div class="modal-popup-content-body-category">
+                    <div>CATEGORIA</div>
+                    <div>
+                      <select
+                        v-model="category"
+                        class="input"
+                        id="input-form-focus"
+                        v-bind:class="{ 'active-input': readyToUpload }"
+                      >
+                        <option disabled value></option>
+                        <option>Acción</option>
+                        <option>Animación</option>
+                        <option>Aventuras</option>
+                        <option>Ciencia Ficción</option>
+                        <option>Comedia</option>
+                        <option>Documentales</option>
+                        <option>Drama</option>
+                        <option>Thriller</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div
+                class="modal-popup-content-bottom"
+                v-bind:class="{ active: readyToUpload }"
+                @click="uploadMovie"
+              >Subir Película</div>
             </div>
-            <div
-              class="modal-popup-content-bottom"
-              v-bind:class="{ active: readyToUpload }"
-              @click="uploadMovie"
-            >Subir Película</div>
-          </div>
+          </template>
+
+          <template v-else>
+             <success-upload :name="name" :category="category" :close="close"></success-upload>
+          </template>
+
         </div>
       </div>
     </div>
@@ -66,19 +75,21 @@
 
 <script>
 import progressBar from "../components/ProgressBar";
-import { get } from "https";
+import successUpload from "../components/SuccessUpload";
 
 export default {
   name: "modal",
   template: "#modal",
   components: {
-    "progress-bar": progressBar
+    "progress-bar": progressBar,
+    "success-upload": successUpload
   },
   data() {
     return {
       name: "",
       category: "",
-      readyToUpload: false
+      readyToUpload: false,
+      movieUploaded: false
     };
   },
   computed: {
@@ -91,6 +102,7 @@ export default {
       this.category = "";
       this.name = "";
       this.readyToUpload = false;
+      this.movieUploaded = false;
     },
     close() {
       this.init();
@@ -106,12 +118,8 @@ export default {
         category: this.category
       };
 
-      // let catalog = localStorage.getItem('catalog');
-      // catalog = catalog ? JSON.parse(catalog) : [];
-
-      // catalog.push(selectedMovie)
       this.$store.commit('addToCatalog', selectedMovie)
-      // localStorage.setItem('catalog', JSON.stringify(catalog));
+      this.movieUploaded = true
       }
     }
   }
@@ -161,7 +169,7 @@ export default {
   width: 730px;
   height: 354px;
   border-radius: 10px;
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
 
   &-content {
     margin-top: 30px;
@@ -276,10 +284,7 @@ export default {
 .close-modal {
   position: relative;
   float: right;
-  top: -29px;
-  left: 23px;
-  width: 7px;
-  height: 7px;
+  right: 8px;
   cursor: pointer;
 }
 
@@ -312,5 +317,9 @@ export default {
   font-size: 15px;
   font-weight: 500;
   background-color: transparent;
+}
+
+.success {
+  background-color: #7ed321;
 }
 </style>
