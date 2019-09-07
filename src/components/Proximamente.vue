@@ -1,12 +1,16 @@
 <template>
   <div class="proximamente-container">
-    <h2 class="proximamente-title">Proximamente</h2>
-    <!-- <movies-showcase :movies="movies" :type="type"></movies-showcase> -->
+    <h2 class="proximamente-title">Próximamente</h2>
 
     <div class="movies-wrapper">
       <template v-for="(movie, i) in movies">
-        <div v-bind:key="i" @mouseover="showByIndex = i" @mouseout="showByIndex = null" class="image-wrapper">
-          <img :src="getPic(movie)" width="255" :height="155" class="image" />
+        <div
+          v-bind:key="i"
+          @mouseover="showByIndex = i"
+          @mouseout="showByIndex = null"
+          class="image-wrapper"
+        >
+          <img :src="getPic(movie)" width="255" height="155" class="image" />
 
           <!-- <div class="movieHovered" v-show="showByIndex === i">
               <img class="add-btn" src="../assets/add-list.svg" alt="">
@@ -25,9 +29,7 @@ import showMovies from "../components/showMovies";
 export default {
   name: "proximamente",
   props: ["movies", "type"],
-  components: {
-    "movies-showcase": showMovies
-  },
+  components: {},
   data() {
     return {
       showByIndex: null
@@ -61,7 +63,6 @@ export default {
 }
 
 .movies-wrapper {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,7 +74,19 @@ export default {
 @media only screen and (max-width: 600px) {
   .proximamente-container {
     margin-top: 32px;
-    margin-left: 15px;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .proximamente-title {
+    margin: 0;
+  }
+
+  .image-wrapper {
+    margin-top: 10px;
+  }
+  .image {
+    width: 100%;
   }
 }
 </style>
