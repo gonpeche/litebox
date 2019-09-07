@@ -93,6 +93,5 @@ export default {
 <style lang="scss" scoped>
 .Added-container {
   color: white;
-  border: 1px solid red;
 }
 </style>

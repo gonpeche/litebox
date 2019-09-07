@@ -58,7 +58,19 @@ export default {
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  // justify-content: space-between;
+}
+
+.ancestor:nth-child(1) {
+  margin-right: 31px;
+}
+
+.ancestor:nth-child(2) {
+  margin-right: 31px;
+}
+
+.ancestor:nth-child(3) {
+  margin-right: 31px;
 }
 
 .ancestor {
