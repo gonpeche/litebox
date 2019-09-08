@@ -8,13 +8,21 @@
           <img class="mobile-menu-close" src="../assets/menu.svg" alt @click="closeSideMenu" />
           <img class="mobile-liteflix-sidebar" src="../assets/liteflix.svg" alt />
         </div>
-
         <ul class="side-nav-items">
-          <li>Ernesto Garmendia</li>
-          <li>Cambiar Usuario</li>
-          <li>Configuración</li>
-          <li>Ayuda</li>
-          <li>Novedades</li>
+          <li class="user-profile">
+            <img src="../assets/fill-1.svg">
+            <span>Ernesto Garmendia</span>
+          </li>
+          <li class="item first">Cambiar Usuario</li>
+          <li class="item">Configuración</li>
+          <li class="item">Ayuda</li>
+          <li>
+            <div class="item item-bell">
+              <img src="../assets/bell.svg" alt="">
+              <img src="../assets/bell-dot.svg" class="bell-dot" alt="">
+              <span class="item-novedades">Novedades</span>
+            </div>
+          </li>
           <li>Series</li>
           <li>Películas</li>
           <li>Mi lista</li>
@@ -79,7 +87,7 @@ export default {
       this.isModalVisible = false;
     },
     openSideMenu() {
-      document.getElementById("side-menu").style.width = "250px";
+      document.getElementById("side-menu").style.width = "225px";
       document.getElementById("side-menu").style.color = "red";
     },
     closeSideMenu() {
@@ -214,12 +222,18 @@ li {
   display: none;
 }
 
+
 // MOBILE
 
 @media only screen and (max-width: 600px) {
   .mobile {
     display: block;
     display: initial;
+    font-size: 12px;
+    &-menu {
+      position: relative;
+    top: -5px;
+    }
   }
   .navbar {
     visibility: hidden;
@@ -229,12 +243,16 @@ li {
     display: flex;
     flex-direction: column;
     transition: margin-left 0.5s;
-    width: 250px;
+    margin-left: 16px;
+    margin-right: 10px;
   }
 
   .mobile-menu-close {
-    margin-top: 22px;
-    margin-left: 15px;
+    // margin-top: 8px;
+    margin-left: 14px;
+    position: relative;
+    top: 9px;
+    left: 1px;
   }
 
   .side-menu-icons {
@@ -251,12 +269,12 @@ li {
     }
 
     &-liteflix {
-      margin-left: 100px;
-      padding-top: 12px;
+      margin-left: 91px;
+      padding-top: 10px;
 
       &-sidebar {
         position: relative;
-        left: 5px;
+        left: 7px;
         top: 9px;
       }
     }
@@ -272,8 +290,57 @@ li {
     background-color: black;
     overflow: hidden;
     transition: 0.3s;
+    // border: 1px solid red;
+  }
+
+  .user-profile {
+    width: 193px;
+    height: 37px;
+    border-radius: 18.5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #222222;
+    padding-top: 6px;
+    padding-left: 11px;
+    margin-top: 7px;
+  }
+
+  .item {
+    padding-top: 10px;
+    width: 193px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #222222;
+
+  }
+
+  .first {
+    margin-top: 10px;
+  }
+
+  .bell-dot {
+    position: relative;
+        top: -3px;
+    left: -9px;
+  }
+
+  .item-bell {
+    // display: initial;
+    display: flex;
+    // padding-top: 26px;
+    // padding-right: 88px;
+
+    span {
+     padding-left: -10px;
+    }
+  }
+
+  .item-novedades {
+    // position: relative;
+    // right: 8px;
+    // width: 240px;
+    // display: block;
   }
 }
+
 // width: 100px;
 //     position: absolute;
 //     /* position: relative; */
