@@ -10,7 +10,7 @@
         </div>
         <ul class="side-nav-items">
           <li class="user-profile">
-            <img src="../assets/fill-1.svg">
+            <img src="../assets/fill-1.svg" />
             <span>Ernesto Garmendia</span>
           </li>
           <li class="item first">Cambiar Usuario</li>
@@ -18,17 +18,23 @@
           <li class="item">Ayuda</li>
           <li>
             <div class="item item-bell">
-              <img src="../assets/bell.svg" alt="">
-              <img src="../assets/bell-dot.svg" class="bell-dot" alt="">
+              <img src="../assets/bell.svg" alt />
+              <img src="../assets/bell-dot.svg" class="bell-dot" alt />
               <span class="item-novedades">Novedades</span>
             </div>
           </li>
-          <li>Series</li>
-          <li>Películas</li>
-          <li>Mi lista</li>
-          <li>Niños</li>
-          <li>Agregar Película</li>
-          <li>Log Out</li>
+          <div class="item-bottom">
+            <li>Series</li>
+            <li>Películas</li>
+            <li>Mi lista</li>
+            <li>Niños</li>
+          </div>
+          <div class="add-movie-sidebar">
+            <img class="add-movie-sidebar-icon" src="../assets/plus.svg"/>
+            <div class="add-movie-sidebar-title">Agregar película</div>
+          </div>
+
+          <li class="item-bottom logout">Log Out</li>
         </ul>
       </div>
     </div>
@@ -213,6 +219,7 @@ li {
   transition: max-width 0.1s;
   overflow: hidden;
 }
+
 #btn:hover span {
   max-width: 183px;
 }
@@ -222,9 +229,7 @@ li {
   display: none;
 }
 
-
 // MOBILE
-
 @media only screen and (max-width: 600px) {
   .mobile {
     display: block;
@@ -232,7 +237,7 @@ li {
     font-size: 12px;
     &-menu {
       position: relative;
-    top: -5px;
+      top: -5px;
     }
   }
   .navbar {
@@ -310,6 +315,14 @@ li {
     padding-bottom: 7px;
     border-bottom: 1px solid #222222;
 
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      li {
+        padding-bottom: 7px;
+      }
+    }
   }
 
   .first {
@@ -318,34 +331,55 @@ li {
 
   .bell-dot {
     position: relative;
-        top: -3px;
+    top: -3px;
     left: -9px;
   }
 
   .item-bell {
-    // display: initial;
     display: flex;
-    // padding-top: 26px;
-    // padding-right: 88px;
+    border: 1px solid transparent;
+    padding-top: 15px;
 
     span {
-     padding-left: -10px;
+      padding-left: -10px;
     }
   }
 
-  .item-novedades {
-    // position: relative;
-    // right: 8px;
-    // width: 240px;
-    // display: block;
+  .add-movie-sidebar {
+    margin-top: 20px;
+    width: 187px;
+    background-color: red;
+    border-radius: 20px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -3px;
+
+    &-icon {
+      padding-left: 11px;
+    }
+
+    &-title {
+      padding-left: 8px;
+      font-size: 14px;
+      letter-spacing: 0;
+      padding-bottom: 4px;
+      color: white;
+    }
+  }
+
+  .logout {
+    margin-top: 23px;
+    // // width: 48px;
+    // height: 15px;
+    padding: 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 700;
   }
 }
-
-// width: 100px;
-//     position: absolute;
-//     /* position: relative; */
-//     top: 11px;
-//     left: 32px;
 </style>
 
 
