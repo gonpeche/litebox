@@ -1,6 +1,6 @@
 <template>
   <div id="popup">
-    <div ref="button" class="toggle-button" @click="showPopup = !showPopup"></div>
+    <div ref="button" class="toggle-button" @click="showPopup = !showPopup" v-bind:class="{'active-input': readyToUpload }">{{category}}</div>
     <div
       v-show="showPopup"
       class="popup-box"
@@ -9,7 +9,7 @@
           handler: 'onClose'
         }"
     >
-      <div class="movies-wrapper" id="hola">
+      <div class="movies-wrapper" @click="handleClick">
         <div value="Acción">Acción</div>
         <div value="Animación">Animación</div>
         <div value="Aventuras">Aventuras</div>
@@ -29,14 +29,16 @@ import handleOutsideClick from "../utils/CustomDirective";
 
 export default {
   name: "inputPopup",
+  props: ["setCategory", "category", "readyToUpload"],
   data() {
     return {
       showPopup: false
     };
   },
   methods: {
-    handleClick(e) {
-      console.log(e.target.value);
+    handleClick(event) {
+      this.setCategory(event.target.getAttribute("value"));
+      this.showPopup = false;
     },
     onClose() {
       this.showPopup = false;
@@ -52,10 +54,8 @@ export default {
 
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 
-#hola {
-  overflow-y: scroll;
-}
 .movies-wrapper {
   color: #9b9b9b;
   font-size: 16px;
@@ -67,7 +67,7 @@ export default {
   padding-right: 9%;
   padding-bottom: 3%;
   height: 260px;
-  // overflow-y: auto;
+  overflow-y: scroll;
 
   div {
     border-bottom: 1px solid rgb(204, 203, 203);
@@ -77,7 +77,7 @@ export default {
 
   div:nth-last-child(1) {
     border-bottom: 0;
-}
+  }
 }
 
 .popup-wrapper {
@@ -97,20 +97,23 @@ export default {
   align-items: center;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 .toggle-button {
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
   border: 0;
   outline: 0;
   height: 36px;
   border-bottom: solid 1.2px #0076ff;
-  opacity: 0.8;
   font-size: 16px;
-  font-weight: 400;
+  line-height: 24px;
+  font-weight: 500;
   letter-spacing: 0;
   color: #000000;
   background: white;
   border-radius: 0;
+  padding-top: 5px;
 }
 
 .popup-box {
@@ -126,5 +129,9 @@ export default {
   width: 334px;
   height: 260px;
   border-radius: 10px;
+}
+
+.active-input {
+  border-bottom: solid 1.2px black;
 }
 </style>

@@ -35,7 +35,7 @@
                   <div class="modal-popup-content-body-category">
                     <div>CATEGORIA</div>
                     <div>
-                        <input-popup></input-popup>
+                        <input-popup :category="category" :setCategory="setCategory" :readyToUpload="readyToUpload"></input-popup>
                     </div>
                   </div>
                 </div>
@@ -108,6 +108,9 @@ export default {
       this.$store.commit('addToCatalog', selectedMovie)
       this.movieUploaded = true
       }
+    },
+    setCategory(name) {
+      this.category = name
     }
   }
 };
