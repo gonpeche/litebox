@@ -1,8 +1,10 @@
 <template>
   <div>
     <div class="mobile" id="mobile">
-      <img class="mobile-menu" src="../assets/menu.svg" alt @click="openSideMenu" />
-      <img class="mobile-liteflix" src="../assets/liteflix.svg" alt />
+      <div class="mobile-top-items">
+        <img class="mobile-top-items-burguer" src="../assets/menu.svg" alt @click="openSideMenu" />
+        <img class="mobile-top-items-liteflix" src="../assets/liteflix.svg" alt />
+      </div>
       <div id="side-menu" class="side-nav">
         <div class="side-menu-icons">
           <img class="mobile-menu-close" src="../assets/menu.svg" alt @click="closeSideMenu" />
@@ -30,7 +32,7 @@
             <li>Niños</li>
           </div>
           <div class="add-movie-sidebar">
-            <img class="add-movie-sidebar-icon" src="../assets/plus.svg"/>
+            <img class="add-movie-sidebar-icon" src="../assets/plus.svg" />
             <div class="add-movie-sidebar-title">Agregar película</div>
           </div>
 
@@ -93,7 +95,7 @@ export default {
       this.isModalVisible = false;
     },
     openSideMenu() {
-      document.getElementById("side-menu").style.width = "225px";
+      document.getElementById("side-menu").style.width = "60%";
       document.getElementById("side-menu").style.color = "red";
     },
     closeSideMenu() {
@@ -235,11 +237,26 @@ li {
     display: block;
     display: initial;
     font-size: 12px;
-    &-menu {
-      position: relative;
-      top: -5px;
+
+    &-top-items {
+      padding-top: 5px;
+      display: flex;
+
+      &-burguer {
+        position: fixed;
+        z-index: 1;
+        left: 15px;
+        top: 16px;
+      }
+
+      &-liteflix {
+        margin: 0 auto;
+        position: relative;
+        top: 4px;
+      }
     }
   }
+
   .navbar {
     visibility: hidden;
   }
