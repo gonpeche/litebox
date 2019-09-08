@@ -1,10 +1,14 @@
 <template>
   <div>
     <div class="mobile" id="mobile">
-      <img class="mobile-menu" src="../assets/menu.svg" alt="" @click="openSideMenu">
-      <img class="mobile-liteflix" src="../assets/liteflix.svg" alt="">
+      <img class="mobile-menu" src="../assets/menu.svg" alt @click="openSideMenu" />
+      <img class="mobile-liteflix" src="../assets/liteflix.svg" alt />
       <div id="side-menu" class="side-nav">
-        <img class="mobile-menu-close" src="../assets/menu.svg" alt="" @click="closeSideMenu">
+        <div class="side-menu-icons">
+          <img class="mobile-menu-close" src="../assets/menu.svg" alt @click="closeSideMenu" />
+          <img class="mobile-liteflix-sidebar" src="../assets/liteflix.svg" alt />
+        </div>
+
         <ul class="side-nav-items">
           <li>Ernesto Garmendia</li>
           <li>Cambiar Usuario</li>
@@ -75,11 +79,11 @@ export default {
       this.isModalVisible = false;
     },
     openSideMenu() {
-      document.getElementById('side-menu').style.width = '250px'
-      document.getElementById('side-menu').style.color = 'red'
+      document.getElementById("side-menu").style.width = "250px";
+      document.getElementById("side-menu").style.color = "red";
     },
     closeSideMenu() {
-      document.getElementById('side-menu').style.width = '0'
+      document.getElementById("side-menu").style.width = "0";
     }
   }
 };
@@ -214,7 +218,7 @@ li {
 
 @media only screen and (max-width: 600px) {
   .mobile {
-       display: block;
+    display: block;
     display: initial;
   }
   .navbar {
@@ -233,8 +237,14 @@ li {
     margin-left: 15px;
   }
 
+  .side-menu-icons {
+    display: flex;
+    flex-direction: row;
+  }
+
   .mobile {
     visibility: visible;
+
     &-menu {
       margin-top: 17px;
       margin-left: 15px;
@@ -243,6 +253,12 @@ li {
     &-liteflix {
       margin-left: 100px;
       padding-top: 12px;
+
+      &-sidebar {
+        position: relative;
+        left: 5px;
+        top: 9px;
+      }
     }
   }
 
@@ -258,7 +274,11 @@ li {
     transition: 0.3s;
   }
 }
-
+// width: 100px;
+//     position: absolute;
+//     /* position: relative; */
+//     top: 11px;
+//     left: 32px;
 </style>
 
 
