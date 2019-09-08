@@ -95,7 +95,7 @@ export default {
       this.isModalVisible = false;
     },
     openSideMenu() {
-      document.getElementById("side-menu").style.width = "60%";
+      document.getElementById("side-menu").style.width = "250px";
       document.getElementById("side-menu").style.color = "red";
     },
     closeSideMenu() {
@@ -262,11 +262,12 @@ li {
   }
 
   .side-nav-items {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     transition: margin-left 0.5s;
-    margin-left: 16px;
-    margin-right: 10px;
+    width: 250px;
+    // margin-left: 16px;
+    // margin-right: 10px;
   }
 
   .mobile-menu-close {
