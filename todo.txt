@@ -1,8 +1,5 @@
-de las featured, sortear la mas nueva
 meter spinners a la carga inicial
 optimizar la carga de peliculas
-
-random pic de https://picsum.photos/
 
 performance:
 usar lazyLoad imagenes
@@ -20,4 +17,5 @@ Lazy load:
 2) https://css-tricks.com/lazy-loading-images-with-vue-js-directives-and-intersection-observer/
 
 TODO:
-el nombre de la pelicula en mobile en la primera pantalla se va para la derecha
+add utils function para las async
+agregar botones on hover movie

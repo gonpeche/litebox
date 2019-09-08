@@ -69,7 +69,19 @@ export default {
     async getFeaturedMovie() {
       try {
         const response = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20');
-        const movie = response.data.results[1];
+        let movies = response.data.results
+        let filtro = []
+
+        movies.map(function(movie, i) {
+          let obj = { miliseconds: Date.parse(movie.release_date), index: i};
+          filtro.push(obj)
+        })
+
+        filtro.sort(function (a, b) {
+          return a.miliseconds - b.miliseconds;
+        });
+
+        const movie = response.data.results[filtro.length-1];
         const backgroundImage = window.innerWidth < 600 ? movie.poster_path : movie.backdrop_path;
 
         const featuredMovie = {
@@ -77,7 +89,9 @@ export default {
           description: movie.overview,
           image: this.getBackgroundImage(backgroundImage)
         }
+
         return featuredMovie
+
       } catch (error) {
         console.error(error)
       }
