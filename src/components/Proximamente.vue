@@ -12,10 +12,21 @@
         >
         <div class="movie-wrapper">
           <img v-lazy="getPic(movie)" width="255" height="155" class="image" >
-          <img v-show="showByIndex === i" class="add-btn" src="../assets/add-list.svg" alt="">
-          <img v-show="showByIndex === i" class="like-btn" src="../assets/like-hovered.svg" alt="">
-          <img v-show="showByIndex === i" class="play-btn" src="../assets/play.svg" alt="">
-          <img v-show="showByIndex === i" class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
+          <div v-show="showByIndex === i">
+            <img class="add-btn" src="../assets/add-list.svg" alt="">
+            <img class="like-btn" src="../assets/like-hovered.svg" alt="">
+            <img class="play-btn" src="../assets/play.svg" alt="">
+            <img class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
+            <div class="movie-wrapper-footer">
+              <div class="movie-wrapper-footer-title">{{movie.title}}</div>
+              <div class="movie-wrapper-footer-body">
+                <div>
+                  <span>98% Coincidencia</span> <div class="badge-wrapper"><span class="badge">16+</span></div> <span>1h 30 min</span>
+                </div>
+                <div>Suspenso</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         </div>
@@ -44,6 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .proximamente-container {
   padding: 0;
   margin: 0;
@@ -98,6 +110,36 @@ export default {
     top: 108%;
     left: 43%;
   }
+
+  &-footer {
+    position: absolute;
+    top: 62%;
+    left: 2%;
+
+    &-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    &-body {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0;
+
+      .badge-wrapper {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        width: 27px;
+      }
+      .badge {
+        padding-left: 6px;
+        font-size: 10px;
+        color: white;
+        font-weight: 100;
+      }
+    }
+  }
 }
 
 .movie-wrapper:before {
@@ -108,7 +150,7 @@ export default {
   width: 100%;
   bottom: 0;
   transition: height 0.2s ease-out;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
 }
 
 .movie-wrapper:hover:before {
