@@ -10,15 +10,17 @@
           @mouseout="showByIndex = null"
           class="image-wrapper"
         >
+        <div class="movie-wrapper">
           <img v-lazy="getPic(movie)" width="255" height="155" class="image" >
+          <!-- <div class="movie-wrapper-icons" > -->
+              <img v-show="showByIndex === i" class="add-btn" src="../assets/add-list.svg" alt="">
+              <img v-show="showByIndex === i" class="like-btn" src="../assets/like-hovered.svg" alt="">
+              <img v-show="showByIndex === i" class="play-btn" src="../assets/play.svg" alt="">
+              <img v-show="showByIndex === i" class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
+          <!-- </div> -->
+        </div>
           <!-- <img :src="getPic(movie)" width="255" height="155" class="image" /> -->
 
-          <!-- <div class="movieHovered" v-show="showByIndex === i">
-              <img class="add-btn" src="../assets/add-list.svg" alt="">
-              <img class="like-btn" src="../assets/like-hovered.svg" alt="">
-              <img class="play-btn" src="../assets/play.svg" alt="">
-              <img class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
-          </div>-->
         </div>
       </template>
     </div>
@@ -69,6 +71,45 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.movie-wrapper {
+  border: 1px solid red;
+  position: relative;
+
+  .add-btn {
+    position: absolute;
+    top: 5%;
+    left: 67%;
+  }
+
+  .like-btn {
+    position: absolute;
+    top: 6%;
+    left: 84%;
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 38%;
+    left: 43%
+  }
+
+  .arrow-hover {
+    position: absolute;
+    top: 108%;
+    left: 43%;
+  }
+  // &-icons img {
+  //   border: 1px solid green;
+  //   position: absolute;
+
+  //   .add-btn {
+  //     position: relative;
+  //     top: 10px;
+  //   }
+  // }
+}
+
 
 // MOBILE
 
