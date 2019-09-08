@@ -85,6 +85,7 @@ export default {
   position: relative;
   transition: .5s ease;
   opacity: 1;
+  cursor: pointer;
 
   .add-btn {
     position: absolute;
