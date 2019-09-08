@@ -1,13 +1,10 @@
 de las featured, sortear la mas nueva
 meter spinners a la carga inicial
 optimizar la carga de peliculas
-mejorar el responsive hasta llegar a mobile
 
 random pic de https://picsum.photos/
 
 performance:
-https://github.com/GoogleChrome/lighthouse/blob/7e5fcf630cd59bddfea0ef5b3cc0b7b243b5cd92/lighthouse-core/config/default-config.js#L371
-https://thinkwithgoogle.com/features/testmysite
 usar lazyLoad imagenes
 data-lazysrc
 https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/
@@ -16,10 +13,11 @@ https://codesandbox.io/s/5v17x4zr64
 
 "estás bajando mucho (6.5mb) de una. entre imágenes y js eso hace que tu First CPU Idle sea muy alto...más allá de lo que te recomienda de hacer con el formato de las imágenes que sean WebP fijate de cargarlas asincrónicamente con data-lazysrc"
 
+Borrar libreria mobile view
 
-Progress  bar:
-https://github.com/hilongjw/vue-progressbar
-que el porcentaje del cargando vaya en aumento
+Lazy load:
+1) https://www.npmjs.com/package/vue-lazyload
+2) https://css-tricks.com/lazy-loading-images-with-vue-js-directives-and-intersection-observer/
 
-hover on movie:
-Poner un div contiendo cada ítem loopeado img
+TODO:
+el nombre de la pelicula en mobile en la primera pantalla se va para la derecha

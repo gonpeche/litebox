@@ -4,15 +4,17 @@
       ORIGINAL DE
       <strong>LITEFLIX</strong>
     </h2>
-    <h1 class="main-container-title">{{featuredMovie.title}}</h1>
+    <div>
+      <h1 class="main-container-title">{{featuredMovie.title}}</h1>
+    </div>
     <ul class="buttons-mobile">
       <li class="main-container-button main-container-button-reproducir">
         <img class="play" src="../assets/reproducir.svg" />
         <span>Reproducir</span>
+        <img src="../assets/add-list.svg" class="add-list-mobile" />
       </li>
       <li class="main-container-button my-list">
         <img src="../assets/plus.svg" class="my-list-mobile" />
-        <img src="../assets/add-list.svg" class="add-list-mobile" />
         <span>Mi Lista</span>
       </li>
     </ul>
@@ -131,6 +133,7 @@ ul {
     &-header {
       margin: 0;
       text-align: center;
+      font-size: 18px;
     }
   }
 
@@ -157,8 +160,9 @@ ul {
   .add-list-mobile {
     visibility: visible;
     position: relative;
-    padding-left: 30px;
-    padding-top: 35px;
+    right: -55px;
+    // padding-left: 30px;
+    // padding-top: 35px;
   }
   .main-container-footer {
     display: none;
@@ -166,6 +170,10 @@ ul {
 
   .main-container-button-reproducir {
     margin-left: 60px;
+  }
+
+  .main-container-title {
+    font-size: 72px;
   }
 }
 </style>

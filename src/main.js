@@ -4,17 +4,14 @@ import './styles/main.scss'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueMq from 'vue-mq'
 import store from './store'
+import VueLazyload from 'vue-lazyload'
 
-Vue.use(VueMq, {
-  breakpoints: {
-    mobile: 768,
-    tablet: 900,
-    laptop: 1250,
-    desktop: Infinity
-  }
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  lazyComponent: true
 })
+
 Vue.config.productionTip = false
 
 window.mainVueObj = new Vue({

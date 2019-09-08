@@ -11,7 +11,8 @@
           @mouseout="showByIndex = null"
           class="image-wrapper"
         >
-          <img :src="getPic(movie)" width="255" height="450" class="image" />
+          <img v-lazy="getPic(movie)" width="255" height="450" class="image">
+          <!-- <img :src="getPic(movie)" width="255" height="450" class="image" /> -->
 
           <!-- <div class="movieHovered" v-show="showByIndex === i">
               <img class="add-btn" src="../assets/add-list.svg" alt="">
@@ -80,9 +81,7 @@ h2 {
     margin-top: 10px;
   }
   .image {
-    // border: 1px solid blue;
     height: 320px;
-    // width: 160px;
     width: 98%
   }
 

@@ -48,7 +48,6 @@ export default {
       this.loading = false;
     })
     .catch(error => console.log(error))
-  console.log(this)
   },
   methods: {
     async getUpcomingMovies() {
@@ -69,12 +68,14 @@ export default {
     },
     async getFeaturedMovie() {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20')
+        const response = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20');
+        const movie = response.data.results[1];
+        const backgroundImage = window.innerWidth < 600 ? movie.poster_path : movie.backdrop_path;
 
         const featuredMovie = {
-          title: response.data.results[5].title,
-          description: response.data.results[5].overview,
-          image: this.getBackgroundImage(response.data.results[5].backdrop_path)
+          title: movie.title,
+          description: movie.overview,
+          image: this.getBackgroundImage(backgroundImage)
         }
         return featuredMovie
       } catch (error) {
