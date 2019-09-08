@@ -8,7 +8,18 @@
           exclude: ['button'],
           handler: 'onClose'
         }"
-    >Test Popup Box</div>
+    >
+      <div class="movies-wrapper" id="hola">
+        <div value="Acción">Acción</div>
+        <div value="Animación">Animación</div>
+        <div value="Aventuras">Aventuras</div>
+        <div value="Ciencia Ficción">Ciencia Ficción</div>
+        <div value="Comedia">Comedia</div>
+        <div value="Documentales">Documentales</div>
+        <div value="Drama">Drama</div>
+        <div value="Thriller">Thriller</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +52,34 @@ export default {
 
 
 <style lang="scss" scoped>
+
+#hola {
+  overflow-y: scroll;
+}
+.movies-wrapper {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 0;
+  margin: 0;
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right: 9%;
+  padding-bottom: 3%;
+  height: 260px;
+  // overflow-y: auto;
+
+  div {
+    border-bottom: 1px solid rgb(204, 203, 203);
+    padding-bottom: 2%;
+    padding-top: 2%;
+  }
+
+  div:nth-last-child(1) {
+    border-bottom: 0;
+}
+}
+
 .popup-wrapper {
   border: 1px solid red;
   position: absolute;
@@ -60,16 +99,6 @@ export default {
   position: relative;
 }
 .toggle-button {
-  // background: #1188FF;
-  // color: #FFF;
-  // border: 0;
-  // border-radius: 2px;
-  // padding: 10px;
-  // font-size: 14px;
-  // cursor: pointer;
-  // outline: none;
-  // transition: 0.2s all;
-
   width: 100%;
   border: 0;
   outline: 0;
@@ -87,12 +116,15 @@ export default {
 .popup-box {
   position: absolute;
   left: 50%;
-  top: 50px;
+  top: 4px;
   transform: translateX(-50%);
-  background: #f0f8ff;
-  border-radius: 1px;
+  background: white;
   box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  color: #555585;
+
+  color: #9b9b9b;
+
+  width: 334px;
+  height: 260px;
+  border-radius: 10px;
 }
 </style>
