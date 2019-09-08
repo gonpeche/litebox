@@ -18,5 +18,4 @@ Lazy load:
 
 TODO:
 add utils function para las async
-agregar botones on hover movie
 hacer que el menu burguer este fix

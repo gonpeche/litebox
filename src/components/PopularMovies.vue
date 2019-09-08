@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import showMovies from "../components/showMovies";
 export default {
   name: "popularMovies",
   props: ["movies", "type"],

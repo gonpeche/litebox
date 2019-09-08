@@ -35,22 +35,7 @@
                   <div class="modal-popup-content-body-category">
                     <div>CATEGORIA</div>
                     <div>
-                      <select
-                        v-model="category"
-                        class="input"
-                        id="input-form-focus"
-                        v-bind:class="{ 'active-input': readyToUpload }"
-                      >
-                        <option disabled value></option>
-                        <option>Acción</option>
-                        <option>Animación</option>
-                        <option>Aventuras</option>
-                        <option>Ciencia Ficción</option>
-                        <option>Comedia</option>
-                        <option>Documentales</option>
-                        <option>Drama</option>
-                        <option>Thriller</option>
-                      </select>
+                        <input-popup></input-popup>
                     </div>
                   </div>
                 </div>
@@ -76,13 +61,15 @@
 <script>
 import progressBar from "../components/ProgressBar";
 import successUpload from "../components/SuccessUpload";
+import inputPopup from "../components/InputPopup"
 
 export default {
   name: "modal",
   template: "#modal",
   components: {
     "progress-bar": progressBar,
-    "success-upload": successUpload
+    "success-upload": successUpload,
+    "input-popup": inputPopup
   },
   data() {
     return {
@@ -321,5 +308,15 @@ export default {
 
 .success {
   background-color: #7ed321;
+}
+
+// Popup Styles
+
+.popup-wrapper button {
+  position: relative;
+}
+
+.button-popup {
+  position: relative;
 }
 </style>

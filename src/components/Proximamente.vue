@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import showMovies from "../components/showMovies";
 export default {
   name: "proximamente",
   props: ["movies", "type"],
