@@ -12,14 +12,11 @@
         >
         <div class="movie-wrapper">
           <img v-lazy="getPic(movie)" width="255" height="155" class="image" >
-          <!-- <div class="movie-wrapper-icons" > -->
-              <img v-show="showByIndex === i" class="add-btn" src="../assets/add-list.svg" alt="">
-              <img v-show="showByIndex === i" class="like-btn" src="../assets/like-hovered.svg" alt="">
-              <img v-show="showByIndex === i" class="play-btn" src="../assets/play.svg" alt="">
-              <img v-show="showByIndex === i" class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
-          <!-- </div> -->
+          <img v-show="showByIndex === i" class="add-btn" src="../assets/add-list.svg" alt="">
+          <img v-show="showByIndex === i" class="like-btn" src="../assets/like-hovered.svg" alt="">
+          <img v-show="showByIndex === i" class="play-btn" src="../assets/play.svg" alt="">
+          <img v-show="showByIndex === i" class="arrow-hover" src="../assets/arrow_hover.svg" alt="">
         </div>
-          <!-- <img :src="getPic(movie)" width="255" height="155" class="image" /> -->
 
         </div>
       </template>
@@ -73,13 +70,15 @@ export default {
 }
 
 .movie-wrapper {
-  border: 1px solid red;
   position: relative;
+  transition: .5s ease;
+  opacity: 1;
 
   .add-btn {
     position: absolute;
     top: 5%;
     left: 67%;
+
   }
 
   .like-btn {
@@ -99,20 +98,24 @@ export default {
     top: 108%;
     left: 43%;
   }
-  // &-icons img {
-  //   border: 1px solid green;
-  //   position: absolute;
-
-  //   .add-btn {
-  //     position: relative;
-  //     top: 10px;
-  //   }
-  // }
 }
 
+.movie-wrapper:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  bottom: 0;
+  transition: height 0.2s ease-out;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.movie-wrapper:hover:before {
+  height: 100%;
+}
 
 // MOBILE
-
 @media only screen and (max-width: 600px) {
   .proximamente-container {
     margin-top: 32px;
