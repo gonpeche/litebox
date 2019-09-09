@@ -56,7 +56,8 @@
       </ul>
       <ul class="navbar-right">
         <li>Niños</li>
-        <li>
+        <li class="bell-wrapper">
+          <img src="../assets/bell-dot.svg" class="bell-dot">
           <img src="../assets/bell.svg" class="bell" />
         </li>
         <li class="dropdown">
@@ -96,7 +97,6 @@ export default {
     },
     openSideMenu() {
       document.getElementById("side-menu").style.width = "250px";
-      document.getElementById("side-menu").style.color = "red";
     },
     closeSideMenu() {
       document.getElementById("side-menu").style.width = "0";
@@ -159,10 +159,20 @@ li {
   margin-bottom: 12px;
 }
 
+.bell-wrapper {
+  position: relative;
+}
+
 .bell {
   width: 14px;
   height: 16px;
   object-fit: contain;
+
+  &-dot {
+    position: absolute;
+    top: 30%;
+    right: 54%;
+  }
 }
 
 .user-01 {
@@ -211,7 +221,7 @@ li {
   position: relative;
   font-size: 16px;
   bottom: 4px;
-  padding-left: 5px;
+  padding-left: 6px;
   color: white;
   font-weight: normal;
 }
@@ -262,16 +272,11 @@ li {
   }
 
   .side-nav-items {
-    // display: flex;
-    // flex-direction: column;
     transition: margin-left 0.5s;
     width: 250px;
-    // margin-left: 16px;
-    // margin-right: 10px;
   }
 
   .mobile-menu-close {
-    // margin-top: 8px;
     margin-left: 14px;
     position: relative;
     top: 9px;
@@ -313,7 +318,6 @@ li {
     background-color: black;
     overflow: hidden;
     transition: 0.3s;
-    // border: 1px solid red;
   }
 
   .user-profile {
@@ -380,7 +384,7 @@ li {
     }
 
     &-title {
-      padding-left: 8px;
+      padding-left: 10px;
       font-size: 14px;
       letter-spacing: 0;
       padding-bottom: 4px;
@@ -390,8 +394,6 @@ li {
 
   .logout {
     margin-top: 23px;
-    // // width: 48px;
-    // height: 15px;
     padding: 0;
     font-family: Montserrat;
     font-size: 12px;

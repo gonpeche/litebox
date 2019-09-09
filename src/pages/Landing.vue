@@ -1,13 +1,9 @@
 <template>
-  <div
-    id="background-image"
-    class="homepage-container"
-    v-bind:style="{ 'background-image': featuredMovie.image }"
-  >
+  <div id="background-image" class="homepage-container" v-bind:style="{ 'background-image': featuredMovie.image }">
     <navbar></navbar>
 
     <template v-if="loading">
-      <infinite-loading class="loading"></infinite-loading>
+      <infinite-loading spinner="circles" class="loading"></infinite-loading>
     </template>
 
     <template v-if="!loading">
@@ -113,7 +109,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap");
 
 .homepage-container {

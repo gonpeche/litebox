@@ -1,6 +1,11 @@
 <template>
   <div id="popup">
-    <div ref="button" class="toggle-button" @click="showPopup = !showPopup" v-bind:class="{'active-input': readyToUpload }">{{category}}</div>
+    <div
+      ref="button"
+      class="toggle-button"
+      @click="showPopup = !showPopup"
+      v-bind:class="{'active-input': readyToUpload }"
+    >{{category}}</div>
     <div
       v-show="showPopup"
       class="popup-box"
@@ -101,7 +106,7 @@ export default {
 }
 .toggle-button {
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: 0;
   outline: 0;
   height: 36px;

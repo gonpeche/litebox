@@ -1,31 +1,33 @@
 <template>
   <div class="progress-container">
     <template v-if="loading">
-      <div class="progress-title"> Cargando {{width}}%</div>
-      <div class="progress-bar" style="--width: 10" data-label=""></div>
+      <div class="progress-title">Cargando {{width}}%</div>
+      <div class="progress-bar" style="--width: 10" data-label></div>
       <div class="progress-footer">CANCELAR</div>
     </template>
 
     <template v-if="readyUpload">
-      <div class="progress-title"><strong>100% Cargado</strong></div>
-      <div class="progress-bar" style="--width: 10" data-label=""></div>
+      <div class="progress-title">
+        <strong>100% Cargado</strong>
+      </div>
+      <div class="progress-bar" style="--width: 10" data-label></div>
       <div class="progress-footer" @click="init">CANCELAR</div>
     </template>
 
     <template v-if="error">
-      <div class="progress-title"> <strong>Error!</strong> No se pudo cargar la película</div>
-      <div id="error" style="--width: 10" data-label=""></div>
+      <div class="progress-title">
+        <strong>Error!</strong> No se pudo cargar la película
+      </div>
+      <div id="error" style="--width: 10" data-label></div>
       <div class="progress-footer" @click="init">REINTENTAR</div>
     </template>
-
-
   </div>
 </template>
 
 <script>
 export default {
   name: "progressBar",
-  props: ['validateUpload', 'init'],
+  props: ["validateUpload", "init"],
   data() {
     return {
       width: 0,
@@ -37,13 +39,12 @@ export default {
   mounted() {
     this.startProgressBar();
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     startProgressBar() {
       const progressBar = document.getElementsByClassName("progress-bar")[0];
       var intervalId = null;
-      let self = this
+      let self = this;
 
       var setWidth = function() {
         const computedStyle = getComputedStyle(progressBar);
@@ -53,9 +54,7 @@ export default {
           self.width = Math.round(width);
           progressBar.style.setProperty("--width", width + 0.9);
         } else {
-
-          self.handleUploadStatus()
-
+          self.handleUploadStatus();
           clearInterval(intervalId);
         }
       };
@@ -76,7 +75,7 @@ export default {
       } else {
         this.loading = false;
         this.readyUpload = true;
-        this.validateUpload()
+        this.validateUpload();
       }
     }
   }
@@ -84,7 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 
 .progress-container {
   width: 660px;
@@ -100,10 +98,9 @@ export default {
 }
 
 .progress {
+
   &-title {
-    // width: 89px;
     height: 15px;
-    // font-family: Montserrat;
     font-size: 12px;
     font-weight: normal;
     font-style: normal;
@@ -112,6 +109,7 @@ export default {
     letter-spacing: normal;
     color: #000000;
   }
+
   &-bar {
     background-color: transparent;
     position: relative;
@@ -120,11 +118,11 @@ export default {
     padding-top: 10px;
 
     .error {
-    background-color: transparent;
-    position: relative;
-    border-radius: 1.5em;
-    color: white;
-    padding-top: 10px;
+      background-color: transparent;
+      position: relative;
+      border-radius: 1.5em;
+      color: white;
+      padding-top: 10px;
     }
   }
 
@@ -156,7 +154,7 @@ export default {
 
 #error {
   border: 1px solid red;
-    content: attr(data-label);
+  content: attr(data-label);
   align-items: center;
   max-width: 265px;
   height: 20px;
@@ -171,4 +169,5 @@ export default {
   border-radius: 1em;
   padding-top: 20px;
 }
+
 </style>

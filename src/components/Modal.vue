@@ -46,6 +46,9 @@
                 @click="uploadMovie"
               >Subir Película</div>
             </div>
+            <span class="disclaimer">
+              * Disclaimer off-topic: Hay 50% de chances de que salga Error
+            </span>
           </template>
 
           <template v-else>
@@ -117,7 +120,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 
 .btn {
   padding: 8px 16px;
@@ -140,6 +142,7 @@ export default {
 }
 
 .modal-container {
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 20px 1px;
   overflow-x: auto;
@@ -313,8 +316,13 @@ export default {
   background-color: #7ed321;
 }
 
+.disclaimer {
+  color: #c0c0c0;
+  font-size: 9px;
+  padding-left: 9px;
+  font-style: italic;
+}
 // Popup Styles
-
 .popup-wrapper button {
   position: relative;
 }

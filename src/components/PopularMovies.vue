@@ -11,7 +11,6 @@
           @mouseout="showByIndex = null"
           class="image-wrapper"
         >
-
           <div class="movie-wrapper">
             <img v-lazy="getPic(movie)" width="255" height="450" class="image" />
             <div v-show="showByIndex === i">
@@ -45,7 +44,6 @@
 export default {
   name: "popularMovies",
   props: ["movies", "type"],
-  components: {},
   data() {
     return {
       showByIndex: null
@@ -81,10 +79,9 @@ h2 {
 }
 
 // STYLES ON HOVER
-
 .movie-wrapper {
   position: relative;
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 1;
   cursor: pointer;
 
@@ -97,7 +94,7 @@ h2 {
   .play-btn {
     position: absolute;
     top: 38%;
-    left: 43%
+    left: 43%;
   }
 
   .arrow-hover {
@@ -141,7 +138,6 @@ h2 {
       }
     }
   }
-
 }
 
 .movie-wrapper:before {
@@ -164,7 +160,6 @@ h2 {
 }
 
 // MOBILE
-
 @media only screen and (max-width: 600px) {
   .popular-container {
     padding-left: 8%;

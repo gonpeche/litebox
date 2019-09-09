@@ -29,10 +29,6 @@
 export default {
   name: "mainContent",
   props: ["featuredMovie"],
-  components: {},
-  data() {
-    return {};
-  }
 };
 </script>
 
@@ -101,6 +97,7 @@ export default {
 
     &-description {
       font-weight: 400;
+      min-height: 150px;
     }
   }
 }
@@ -122,8 +119,8 @@ ul {
 .add-list-mobile {
   visibility: hidden;
 }
-// MOBILE
 
+// MOBILE
 @media only screen and (max-width: 600px) {
   .main-container {
     padding-left: 11%;
@@ -136,7 +133,6 @@ ul {
       font-size: 18px;
     }
   }
-
 
   .my-list {
     background-color: transparent;
@@ -161,8 +157,6 @@ ul {
     visibility: visible;
     position: relative;
     right: -55px;
-    // padding-left: 30px;
-    // padding-top: 35px;
   }
   .main-container-footer {
     display: none;

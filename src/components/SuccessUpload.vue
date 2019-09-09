@@ -1,15 +1,17 @@
 <template>
   <div class="success-wrapper">
     <div class="content">
-      <img src="../assets/liteflix.svg" alt="">
+      <img src="../assets/liteflix.svg" alt />
       <div class="content-body">
         <p class="content-title">Felicitaciones!</p>
-        <div><strong>{{name}}</strong> fue correctamente subido</div>
-        <div>a la categoría de <strong>{{category}}</strong></div>
+        <div>
+          <strong>{{name}}</strong> fue correctamente subido
+        </div>
+        <div>
+          a la categoría de <strong>{{category}}</strong>
+        </div>
       </div>
-      <div class="content-footer" @click="close">
-        Cerrar
-      </div>
+      <div class="content-footer" @click="close">Cerrar</div>
     </div>
   </div>
 </template>
@@ -17,10 +19,9 @@
 <script>
 export default {
   name: "successUpload",
-  props: ['name', 'category', 'close'],
+  props: ["name", "category", "close"],
   data() {
-    return {
-    };
+    return {};
   },
   methods: {}
 };
@@ -40,6 +41,7 @@ export default {
 
 .content {
   max-width: 536px;
+
   &-title {
     margin: 0;
     padding: 0;
@@ -47,10 +49,12 @@ export default {
     padding-top: 44px;
     font-weight: 500;
   }
+
   &-body {
     font-size: 24px;
     line-height: 33px;
   }
+
   &-footer {
     width: 192px;
     height: 70px;
@@ -64,5 +68,4 @@ export default {
     cursor: pointer;
   }
 }
-
 </style>

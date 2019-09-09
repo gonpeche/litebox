@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import showAddedMovies from '../components/ShowAddedMovies'
+import showAddedMovies from "../components/ShowAddedMovies";
 
 export default {
   name: "added-manually",
   components: {
-    'show-added-movies': showAddedMovies
+    "show-added-movies": showAddedMovies
   },
   data() {
     return {
@@ -53,45 +53,47 @@ export default {
   computed: {
     getCatalog() {
       let catalog = this.$store.state.catalog;
-      let newCatalog = []
+      let newCatalog = [];
 
       for (var i = 0; i < catalog.length; i++) {
-        if (catalog[i].category === 'Acción') {
-          newCatalog.push(catalog[i])
-          this.accion = true
-        } else if (catalog[i].category === 'Animación') {
-          newCatalog.push(catalog[i])
-          this.animacion = true
-        } else if (catalog[i].category === 'Aventuras') {
-          newCatalog.push(catalog[i])
-          this.aventuras = true
-        } else if (catalog[i].category === 'Ciencia Ficción') {
-          newCatalog.push(catalog[i])
-          this.cienciaFiccion = true
-        } else if (catalog[i].category === 'Comedia') {
-          newCatalog.push(catalog[i])
-          this.comedia = true
-        } else if (catalog[i].category === 'Documentales') {
-          newCatalog.push(catalog[i])
-          this.documentales = true
-        } else if (catalog[i].category === 'Drama') {
-          newCatalog.push(catalog[i])
-          this.drama = true
-        } else if (catalog[i].category === 'Thriller') {
-          newCatalog.push(catalog[i])
-          this.thriller = true
+        if (catalog[i].category === "Acción") {
+          newCatalog.push(catalog[i]);
+          this.accion = true;
+        } else if (catalog[i].category === "Animación") {
+          newCatalog.push(catalog[i]);
+          this.animacion = true;
+        } else if (catalog[i].category === "Aventuras") {
+          newCatalog.push(catalog[i]);
+          this.aventuras = true;
+        } else if (catalog[i].category === "Ciencia Ficción") {
+          newCatalog.push(catalog[i]);
+          this.cienciaFiccion = true;
+        } else if (catalog[i].category === "Comedia") {
+          newCatalog.push(catalog[i]);
+          this.comedia = true;
+        } else if (catalog[i].category === "Documentales") {
+          newCatalog.push(catalog[i]);
+          this.documentales = true;
+        } else if (catalog[i].category === "Drama") {
+          newCatalog.push(catalog[i]);
+          this.drama = true;
+        } else if (catalog[i].category === "Thriller") {
+          newCatalog.push(catalog[i]);
+          this.thriller = true;
         }
       }
 
-    this.catalog = newCatalog
+      this.catalog = newCatalog;
+    }
   }
-  },
-  methods: {}
 };
 </script>
 
 <style lang="scss" scoped>
+
 .Added-container {
   color: white;
+  padding-bottom: 5%;
 }
+
 </style>
