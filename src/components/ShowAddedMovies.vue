@@ -5,17 +5,16 @@
       <template v-for="(movie, i) in catalog">
         <div
           v-bind:key="i"
+          v-if="movie.category === category"
           @mouseover="showByIndex = i"
           @mouseout="showByIndex = null"
-          class="image-wrapper"
+          class="movie-wrapper"
         >
-          <div class="movie-wrapper" v-if="movie.category === category">
             <img v-lazy="getRandomPic(i)" width="255" height="155" class="image" />
             <div v-show="showByIndex === i">
               <img class="add-btn" src="../assets/add-list.svg" alt />
               <img class="like-btn" src="../assets/like-hovered.svg" alt />
               <img class="play-btn" src="../assets/play.svg" alt />
-              <img class="arrow-hover" src="../assets/arrow_hover.svg" alt />
               <div class="movie-wrapper-footer">
                 <div class="movie-wrapper-footer-title">{{movie.name}}</div>
                 <div class="movie-wrapper-footer-body">
@@ -30,7 +29,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </template>
     </div>
@@ -50,7 +48,7 @@ export default {
 
   methods: {
     getRandomPic(index) {
-      return `https://picsum.photos/id/10${index}/255/155?blur=1`
+      return `https://picsum.photos/id/1${index}/255/155?blur=1`
     }
   }
 }
@@ -74,28 +72,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 10px;
-}
-
-.movie {
-  background-color: rgb(122, 121, 121);
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 20px;
-  width: 255px;
-  height: 155px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-
-// EXPERIMENTO
-.movies-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  margin-left: -19px;
+  margin-right: -19px;
 }
 
 .movie-wrapper {
@@ -103,6 +81,9 @@ export default {
   transition: 0.5s ease;
   opacity: 1;
   cursor: pointer;
+  margin-left: 17px;
+  margin-right: 17px;
+  margin-bottom: 17px;
 
   .add-btn {
     position: absolute;
@@ -178,9 +159,6 @@ export default {
   height: 100%;
 }
 
-
-// FIN EXPERIMENTO
-
 // MOBILE
 @media only screen and (max-width: 600px) {
   .addedMovies-container {
@@ -194,13 +172,26 @@ export default {
   }
 
   .movies {
-    margin-top: 13px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
+  .movie-wrapper {
+    margin: 0;
+    padding: 0;
+  }
   .movie {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  img {
+    width: 100%;
+    padding-top: 14px;
   }
 }
 
