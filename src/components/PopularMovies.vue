@@ -162,8 +162,8 @@ h2 {
 // MOBILE
 @media only screen and (max-width: 600px) {
   .popular-container {
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .image-wrapper {

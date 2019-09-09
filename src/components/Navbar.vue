@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="navbar-container">
+
     <div class="mobile" id="mobile">
       <div class="mobile-top-items">
         <img class="mobile-top-items-burguer" src="../assets/menu.svg" alt @click="openSideMenu" />
@@ -15,9 +16,11 @@
             <img src="../assets/fill-1.svg" />
             <span>Ernesto Garmendia</span>
           </li>
-          <li class="item first">Cambiar Usuario</li>
-          <li class="item">Configuración</li>
-          <li class="item">Ayuda</li>
+          <div class="user-btn">
+            <li class="item">Cambiar Usuario</li>
+            <li class="item">Configuración</li>
+            <li class="item">Ayuda</li>
+          </div>
           <li>
             <div class="item item-bell">
               <img src="../assets/bell.svg" alt />
@@ -35,11 +38,12 @@
             <img class="add-movie-sidebar-icon" src="../assets/plus.svg" />
             <div class="add-movie-sidebar-title">Agregar película</div>
           </div>
-
           <li class="item-bottom logout">Log Out</li>
         </ul>
       </div>
     </div>
+
+
     <nav class="navbar">
       <ul class="navbar-left">
         <img src="../assets/liteflix.svg" class="liteflix" />
@@ -96,10 +100,10 @@ export default {
       this.isModalVisible = false;
     },
     openSideMenu() {
-      document.getElementById("side-menu").style.width = "250px";
+      document.getElementById("side-menu").style.width = "228px";
     },
     closeSideMenu() {
-      document.getElementById("side-menu").style.width = "0";
+      document.getElementById("side-menu").style.width = 0;
     }
   }
 };
@@ -247,6 +251,7 @@ li {
     display: block;
     display: initial;
     font-size: 12px;
+    z-index: 2;
 
     &-top-items {
       padding-top: 5px;
@@ -266,14 +271,17 @@ li {
       }
     }
   }
-
+  #mobile {
+    z-index: 10;
+    opacity: 1;
+  }
   .navbar {
     visibility: hidden;
   }
 
   .side-nav-items {
     transition: margin-left 0.5s;
-    width: 250px;
+    width: 228px;
   }
 
   .mobile-menu-close {
@@ -302,7 +310,7 @@ li {
 
       &-sidebar {
         position: relative;
-        left: 7px;
+        left: 10px;
         top: 9px;
       }
     }
@@ -328,7 +336,7 @@ li {
     background-color: #222222;
     padding-top: 6px;
     padding-left: 11px;
-    margin-top: 7px;
+    margin-top: 9px;
   }
 
   .item {
@@ -347,8 +355,13 @@ li {
     }
   }
 
-  .first {
-    margin-top: 10px;
+
+  .user-btn {
+    margin-top:20px;
+
+    li {
+      font-size: 12px;
+    }
   }
 
   .bell-dot {

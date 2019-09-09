@@ -162,14 +162,12 @@ export default {
   width: 730px;
   height: 354px;
   border-radius: 10px;
-  // border: 1px solid transparent;
 
   &-content {
     margin-top: 30px;
     margin-left: 35px;
     margin-right: 35px;
     height: 297px;
-    // border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -180,7 +178,6 @@ export default {
     }
 
     &-header {
-      // border: solid 1px #9b9b9b;
       border-style: dotted;
       border-radius: 10px;
       height: 100px;
@@ -201,16 +198,12 @@ export default {
 
       .add-file {
         font-weight: 700;
-        // font-size: 16px;
         color: #0076ff;
       }
     }
 
     &-body {
-      // border: 1px solid pink;
       padding-top: 30px;
-      // margin: 0;
-      // padding: 0;
       color: #9b9b9b;
       width: 100%;
       display: flex;
@@ -224,11 +217,9 @@ export default {
       &-name {
         width: 50%;
         padding-right: 30px;
-        // border: 1px solid yellow;
       }
       &-category {
         width: 50%;
-        // border: 1px solid blue;
       }
     }
 
@@ -283,13 +274,11 @@ export default {
 
 .active {
   background-color: black;
-  border: 1px solid read;
 }
 
 .input {
   border-bottom: solid 1.2px #0076ff;
   height: 35px;
-  // padding-top: 9px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;

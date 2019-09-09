@@ -56,6 +56,7 @@ export default {
     font-stretch: normal;
     line-height: 0.82;
     letter-spacing: normal;
+    overflow-wrap: break-word;
   }
 
   &-button {
@@ -131,6 +132,7 @@ ul {
       margin: 0;
       text-align: center;
       font-size: 18px;
+      margin-top: 52px;
     }
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="background-image" class="homepage-container" v-bind:style="{ 'background-image': featuredMovie.image }">
+  <div class="homepage-container" v-bind:style="{ 'background-image': featuredMovie.image }">
     <navbar></navbar>
 
     <template v-if="loading">
@@ -82,7 +82,7 @@ export default {
         return a.miliseconds - b.miliseconds;
       });
 
-      // change background image if desktop or mobile
+      // change background image if Desktop or Mobile
       let latestMovie = movie.data.results[orderedMovies.length - 1];
       let backgroundImage =
         window.innerWidth < 600

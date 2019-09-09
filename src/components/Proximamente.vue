@@ -165,8 +165,8 @@ export default {
 @media only screen and (max-width: 600px) {
   .proximamente-container {
     margin-top: 32px;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .proximamente-title {

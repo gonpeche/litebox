@@ -163,8 +163,8 @@ export default {
 @media only screen and (max-width: 600px) {
   .addedMovies-container {
     margin-top: 32px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .title {
