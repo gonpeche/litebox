@@ -117,7 +117,7 @@ export default {
     left: 2%;
 
     &-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
     }
 

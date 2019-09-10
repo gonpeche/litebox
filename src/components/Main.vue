@@ -169,7 +169,7 @@ ul {
   }
 
   .main-container-title {
-    font-size: 72px;
+    font-size: 70px;
   }
 }
 
