@@ -1,19 +1,23 @@
 <template>
   <div class="navbar-container">
-
     <div class="mobile" id="mobile">
       <div class="mobile-top-items">
-        <img class="mobile-top-items-burguer" src="../assets/menu.svg" alt @click="openSideMenu" />
-        <img class="mobile-top-items-liteflix" src="../assets/liteflix.svg" alt />
+        <img
+          class="mobile-top-items-burguer"
+          src="../assets/menu.svg"
+          alt="menu"
+          @click="openSideMenu"
+        />
+        <img class="mobile-top-items-liteflix" src="../assets/liteflix.svg" alt="liteflix" />
       </div>
       <div id="side-menu" class="side-nav">
         <div class="side-menu-icons">
-          <img class="mobile-menu-close" src="../assets/menu.svg" alt @click="closeSideMenu" />
-          <img class="mobile-liteflix-sidebar" src="../assets/liteflix.svg" alt />
+          <img class="mobile-menu-close" src="../assets/menu.svg" alt="menu" @click="closeSideMenu" />
+          <img class="mobile-liteflix-sidebar" src="../assets/liteflix.svg" alt="liteflix" />
         </div>
         <ul class="side-nav-items">
           <li class="user-profile">
-            <img src="../assets/fill-1.svg" />
+            <img src="../assets/fill-1.svg" alt="user" />
             <span>Ernesto Garmendia</span>
           </li>
           <div class="user-btn">
@@ -23,8 +27,8 @@
           </div>
           <li>
             <div class="item item-bell">
-              <img src="../assets/bell.svg" alt />
-              <img src="../assets/bell-dot.svg" class="bell-dot" alt />
+              <img src="../assets/bell.svg" alt="user" />
+              <img src="../assets/bell-dot.svg" class="bell-dot" alt="user" />
               <span class="item-novedades">Novedades</span>
             </div>
           </li>
@@ -35,7 +39,7 @@
             <li>Niños</li>
           </div>
           <div class="add-movie-sidebar">
-            <img class="add-movie-sidebar-icon" src="../assets/plus.svg" />
+            <img class="add-movie-sidebar-icon" src="../assets/plus.svg" alt="user" />
             <div class="add-movie-sidebar-title">Agregar película</div>
           </div>
           <li class="item-bottom logout">Log Out</li>
@@ -43,17 +47,16 @@
       </div>
     </div>
 
-
     <nav class="navbar">
       <ul class="navbar-left">
-        <img src="../assets/liteflix.svg" class="liteflix" />
+        <img src="../assets/liteflix.svg" class="liteflix" alt="liteflix" />
         <li class="inicio">Inicio</li>
         <li>Series</li>
         <li>Películas</li>
         <li>Agregados recientemente</li>
         <li>Mi lista</li>
         <div id="btn" class="oval show_add_movie" @click="showModal">
-          <img src="../assets/plus.svg" class="plus" />
+          <img src="../assets/plus.svg" class="plus" alt="plus" />
           <span class="add_movie">Agregar película</span>
         </div>
         <modal v-show="isModalVisible" @close="closeModal" />
@@ -61,14 +64,14 @@
       <ul class="navbar-right">
         <li>Niños</li>
         <li class="bell-wrapper">
-          <img src="../assets/bell-dot.svg" class="bell-dot">
-          <img src="../assets/bell.svg" class="bell" />
+          <img src="../assets/bell-dot.svg" class="bell-dot" alt="bell" />
+          <img src="../assets/bell.svg" class="bell" alt="bell" />
         </li>
         <li class="dropdown">
           <dropdown></dropdown>
         </li>
         <li>
-          <img src="../assets/arrow.svg" class="arrow" />
+          <img src="../assets/arrow.svg" class="arrow" alt="arrow" />
         </li>
       </ul>
     </nav>
@@ -110,6 +113,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 ul {
   margin: 0;
   padding: 0;
@@ -355,9 +359,8 @@ li {
     }
   }
 
-
   .user-btn {
-    margin-top:20px;
+    margin-top: 20px;
 
     li {
       font-size: 12px;
@@ -413,6 +416,7 @@ li {
     font-weight: 700;
   }
 }
+
 </style>
 
 

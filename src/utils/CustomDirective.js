@@ -2,6 +2,8 @@ import Vue from 'vue'
 
 let handleOutsideClick
 
+// Custom directive to handle outside clicking on the input pop up when adding a new movie category
+
 Vue.directive('closable', {
   bind (el, binding, vnode) {
     handleOutsideClick = (e) => {

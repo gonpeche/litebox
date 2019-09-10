@@ -59,7 +59,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 
 .movies-wrapper {
   color: #9b9b9b;

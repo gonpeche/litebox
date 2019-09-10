@@ -10,11 +10,11 @@
           @mouseout="showByIndex = null"
           class="movie-wrapper"
         >
-            <img v-lazy="getRandomPic(i)" width="255" height="155" class="image" />
+            <img v-lazy="getRandomPic(i)" width="255" height="155" class="image" alt="movie"/>
             <div v-show="showByIndex === i">
-              <img class="add-btn" src="../assets/add-list.svg" alt />
-              <img class="like-btn" src="../assets/like-hovered.svg" alt />
-              <img class="play-btn" src="../assets/play.svg" alt />
+              <img class="add-btn" src="../assets/add-list.svg" alt="add" />
+              <img class="like-btn" src="../assets/like-hovered.svg" alt="like" />
+              <img class="play-btn" src="../assets/play.svg" alt="play" />
               <div class="movie-wrapper-footer">
                 <div class="movie-wrapper-footer-title">{{movie.name}}</div>
                 <div class="movie-wrapper-footer-body">
@@ -45,7 +45,6 @@ export default {
       showByIndex: null
     };
   },
-
   methods: {
     getRandomPic(index) {
       return `https://picsum.photos/id/1${index}/255/155?blur=1`

@@ -9,12 +9,12 @@
     </div>
     <ul class="buttons-mobile">
       <li class="main-container-button main-container-button-reproducir">
-        <img class="play" src="../assets/reproducir.svg" />
+        <img class="play" src="../assets/reproducir.svg" alt="play" />
         <span>Reproducir</span>
-        <img src="../assets/add-list.svg" class="add-list-mobile" />
+        <img src="../assets/add-list.svg" class="add-list-mobile" alt="add" />
       </li>
       <li class="main-container-button my-list">
-        <img src="../assets/plus.svg" class="my-list-mobile" />
+        <img src="../assets/plus.svg" class="my-list-mobile" alt="plus" />
         <span>Mi Lista</span>
       </li>
     </ul>
@@ -28,7 +28,7 @@
 <script>
 export default {
   name: "mainContent",
-  props: ["featuredMovie"],
+  props: ["featuredMovie"]
 };
 </script>
 
@@ -172,4 +172,5 @@ ul {
     font-size: 72px;
   }
 }
+
 </style>

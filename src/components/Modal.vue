@@ -8,7 +8,6 @@
           <template v-if="!movieUploaded">
             <div class="modal-popup-content">
               <div class="modal-popup-content-top">
-
                 <template v-if="startLoading">
                   <progress-bar :validateUpload="validateUpload" :init="init"></progress-bar>
                 </template>
@@ -16,7 +15,7 @@
                 <template v-if="!startLoading">
                   <div class="modal-popup-content-header">
                     <div class="modal-popup-content-header-text">
-                      <img src="../assets/clip.svg" class="clip" />
+                      <img src="../assets/clip.svg" class="clip" alt="clip" />
                       <span class="add-file">Agregar archivo</span> o arrastrarlo y soltarlo aquí
                     </div>
                   </div>
@@ -35,7 +34,11 @@
                   <div class="modal-popup-content-body-category">
                     <div>CATEGORIA</div>
                     <div>
-                        <input-popup :category="category" :setCategory="setCategory" :readyToUpload="readyToUpload"></input-popup>
+                      <input-popup
+                        :category="category"
+                        :setCategory="setCategory"
+                        :readyToUpload="readyToUpload"
+                      ></input-popup>
                     </div>
                   </div>
                 </div>
@@ -46,15 +49,12 @@
                 @click="uploadMovie"
               >Subir Película</div>
             </div>
-            <span class="disclaimer">
-              * Disclaimer off-topic: Hay 50% de chances de que salga Error
-            </span>
+            <span class="disclaimer">* Disclaimer off-topic: Hay 50% de chances de que salga Error</span>
           </template>
 
           <template v-else>
-             <success-upload :name="name" :category="category" :close="close"></success-upload>
+            <success-upload :name="name" :category="category" :close="close"></success-upload>
           </template>
-
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@
 <script>
 import progressBar from "../components/ProgressBar";
 import successUpload from "../components/SuccessUpload";
-import inputPopup from "../components/InputPopup"
+import inputPopup from "../components/InputPopup";
 
 export default {
   name: "modal",
@@ -103,24 +103,23 @@ export default {
     },
     uploadMovie() {
       if (this.readyToUpload) {
-      let selectedMovie = {
-        name: this.name,
-        category: this.category
-      };
+        let selectedMovie = {
+          name: this.name,
+          category: this.category
+        };
 
-      this.$store.commit('addToCatalog', selectedMovie)
-      this.movieUploaded = true
+        this.$store.commit("addToCatalog", selectedMovie);
+        this.movieUploaded = true;
       }
     },
     setCategory(name) {
-      this.category = name
+      this.category = name;
     }
   }
 };
 </script>
 
 <style lang="scss">
-
 .btn {
   padding: 8px 16px;
   border-radius: 3px;

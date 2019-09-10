@@ -12,11 +12,11 @@
           class="image-wrapper"
         >
           <div class="movie-wrapper">
-            <img v-lazy="getPic(movie)" width="255" height="450" class="image" />
+            <img v-lazy="getPic(movie)" width="255" height="450" class="image" alt="movie"/>
             <div v-show="showByIndex === i">
-              <img class="like-btn" src="../assets/like-hovered.svg" alt />
-              <img class="play-btn" src="../assets/play.svg" alt />
-              <img class="arrow-hover" src="../assets/arrow_hover.svg" alt />
+              <img class="like-btn" src="../assets/like-hovered.svg" alt="like"/>
+              <img class="play-btn" src="../assets/play.svg" alt="play" />
+              <img class="arrow-hover" src="../assets/arrow_hover.svg" alt="arrow" />
               <div class="movie-wrapper-footer">
                 <div class="movie-wrapper-footer-title">{{movie.title}}</div>
                 <div class="movie-wrapper-footer-body">
@@ -58,6 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .popular-title {
   margin-top: 40px;
 }
@@ -175,4 +176,5 @@ h2 {
     width: 98%;
   }
 }
+
 </style>

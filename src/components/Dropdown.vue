@@ -1,6 +1,6 @@
 <template>
   <div @mouseover="showMenu = true" @mouseleave="showMenu = false" class="dropdown-wrapper">
-    <img src="../assets/user-01.svg" />
+    <img src="../assets/user-01.svg" alt="user" />
     <div id="dropdown-fix">
       <transition name="fade">
         <template v-if="showMenu">
@@ -8,16 +8,16 @@
             <ul>
               <li>
                 <div class="user">
-                  <img src="../assets/fill-1.svg" />
+                  <img src="../assets/fill-1.svg" alt="user" />
                   <span>Ernesto G...</span>
                 </div>
               </li>
               <li class="user-gray">
-                <img src="../assets/user-gray.svg" alt />
+                <img src="../assets/user-gray.svg" alt="user" />
                 <span>User 03</span>
               </li>
               <li class="user-gray last">
-                <img src="../assets/user-gray.svg" alt />
+                <img src="../assets/user-gray.svg" alt="user" />
                 <span>User 04</span>
               </li>
               <div class="button-dropdown">

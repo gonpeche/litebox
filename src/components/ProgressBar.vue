@@ -39,7 +39,6 @@ export default {
   mounted() {
     this.startProgressBar();
   },
-  computed: {},
   methods: {
     startProgressBar() {
       const progressBar = document.getElementsByClassName("progress-bar")[0];

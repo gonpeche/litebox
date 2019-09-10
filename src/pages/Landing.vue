@@ -12,6 +12,7 @@
       <popular-movies :movies="popularMovies" type="popular"></popular-movies>
       <added-manually></added-manually>
     </template>
+
   </div>
 </template>
 
@@ -58,8 +59,8 @@ export default {
         "https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20"
       );
 
-      let upcomingMovies = this.filterMovies(allUpcomingMovies.data.results);
-      let popularMovies = this.filterMovies(allPopularMovies.data.results);
+      let upcomingMovies = this.filterOnlyFourMovies(allUpcomingMovies.data.results);
+      let popularMovies = this.filterOnlyFourMovies(allPopularMovies.data.results);
       let featuredMovie = this.filterFeaturedMovie(allFeaturedMovies);
 
       this.upcomingMovies = upcomingMovies;
@@ -68,12 +69,12 @@ export default {
 
       this.loading = false;
     },
-    filterFeaturedMovie(movie) {
+    filterFeaturedMovie(allFeaturedMovies) {
       // get the latest movie
       let movies = movie.data.results;
       let orderedMovies = [];
 
-      movies.map(function(movie, i) {
+      movies.map(function(allFeaturedMovies, i) {
         let obj = { miliseconds: Date.parse(movie.release_date), index: i };
         orderedMovies.push(obj);
       });
@@ -97,12 +98,12 @@ export default {
 
       return featuredMovie;
     },
-    filterMovies(movies) {
+    filterOnlyFourMovies(movies) {
       movies.splice(4);
       return movies;
     },
     getBackgroundImage(url) {
-      return `linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000), url("https://image.tmdb.org/t/p/original/${url}")`;
+      return `linear-gradient(to top, rgba(0, 0, 0, 0.2), #000000), url("https://image.tmdb.org/t/p/w1280/${url}")`;
     }
   }
 };
@@ -211,12 +212,13 @@ ul {
 .loading {
   margin-top: 20%;
 }
-// MOBILE
 
+// MOBILE
 @media only screen and (max-width: 600px) {
   .homepage-container {
     padding-left: 0;
     padding-right: 0;
   }
 }
+
 </style>
