@@ -71,11 +71,11 @@ export default {
     },
     filterFeaturedMovie(allFeaturedMovies) {
       // get the latest movie
-      let movies = movie.data.results;
+      let movies = allFeaturedMovies.data.results;
       let orderedMovies = [];
 
       movies.map(function(allFeaturedMovies, i) {
-        let obj = { miliseconds: Date.parse(movie.release_date), index: i };
+        let obj = { miliseconds: Date.parse(allFeaturedMovies.release_date), index: i };
         orderedMovies.push(obj);
       });
 
@@ -84,7 +84,7 @@ export default {
       });
 
       // change background image if Desktop or Mobile
-      let latestMovie = movie.data.results[orderedMovies.length - 1];
+      let latestMovie = allFeaturedMovies.data.results[orderedMovies.length - 1];
       let backgroundImage =
         window.innerWidth < 600
           ? latestMovie.poster_path
